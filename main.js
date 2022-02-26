@@ -73,8 +73,8 @@ exec(`cd /sdcard/download && play *mp3`)
    
    Fardan.on('chat-update', async (mek) => {
         require('./FardanConnect.js')(Fardan, mek)
-        ownerNumber = ["6281299792351@s.whatsapp.net","6285737143507@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
-        dtod = "6281299792351@s.whatsapp.net"
+        ownerNumber = ["6281523940672@s.whatsapp.net","6281523940672@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
+        dtod = "6281523940672@s.whatsapp.net"
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })   
     
