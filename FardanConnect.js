@@ -1,11 +1,11 @@
-/* Base Ori : Fardana
-SC Ori : Fardana
+/* Base Ori : iRexusa
+SC Ori : iRexusa
 
 
 Thanks a lot to
  
 > Allah SWT
-> Fardan Ilham
+> iRexus Ilham
 
 > Agos ( Killerz Bot )
 > My parents
@@ -66,7 +66,7 @@ const fetch = require('node-fetch')
 const imgbb = require('imgbb-uploader')
 const fromData = require('form-data')
 const speed = require('performance-now')
-const dtod = "6281398860278@s.whatsapp.net"
+const dtod = "6281299792351@s.whatsapp.net"
 const otod = "6282138919347@s.whatsapp.net"
 
     //── 「 Lib 」 ──//
@@ -152,7 +152,7 @@ var fgi = {
 key: {
 fromMe: false,
 participant: `0@s.whatsapp.net`, ...(from ? 
-{ remoteJid: "6281398860278-1613049930@g.us" } : {})
+{ remoteJid: "6281299792351-1613049930@g.us" } : {})
 },
 message: { 
 "videoMessage": { 
@@ -161,7 +161,7 @@ message: {
 'duration': '99999', 
 'gifPlayback': 'true', 
 'caption': `${calender}`,
-'jpegThumbnail': fs.readFileSync('./Fardan.jpg')
+'jpegThumbnail': fs.readFileSync('./iRexus.jpg')
 }
 }
     }   
@@ -245,7 +245,7 @@ const getCmd = (id) => {
 }
     //── 「 Module Pembatas om 」 ──//
     
-module.exports = Fardan = async (Fardan, mek) => {
+module.exports = iRexus = async (iRexus, mek) => {
 try {
         if (!mek.hasNewMessage) return
         mek = mek.messages.all()[0]
@@ -255,14 +255,14 @@ try {
 		nums = mek.participant
         longkapnye = "\n".repeat(420)
         tekuss = `\`\`\`TANDAI TELAH DIBACA !!!\`\`\`${longkapnye}\`\`\`@⁨${nums.split('@')[0]} Terdeteksi Telah Mengirim Bug, @⁨${nums.split('@')[0]} Akan Dikick!\`\`\`\n`
-        Fardan.groupRemove(mek.key.remoteJid, [nums]).catch((e) => { reply(`*ERR:* ${e}`) })
-        Fardan.sendMessage(mek.key.remoteJid, tekuss, MessageType.text, {contextInfo:{mentionedJid:[nums + "@s.whatsapp.net"]}})
+        iRexus.groupRemove(mek.key.remoteJid, [nums]).catch((e) => { reply(`*ERR:* ${e}`) })
+        iRexus.sendMessage(mek.key.remoteJid, tekuss, MessageType.text, {contextInfo:{mentionedJid:[nums + "@s.whatsapp.net"]}})
         }
         mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
 		const typei = Object.keys(mek.message)[0]
 		global.prefix
-		me = Fardan.user
-		m = simple.smsg(Fardan, mek)
+		me = iRexus.user
+		m = simple.smsg(iRexus, mek)
 		const antibot = m.isBaileys
 		const content = JSON.stringify(mek.message)
 		const from = mek.key.remoteJid
@@ -273,7 +273,7 @@ try {
 		const timeWita = moment().tz('Asia/Makassar').format('DD/MM HH:mm:ss')
         const timeWit = moment().tz('Asia/Jayapura').format('DD/MM HH:mm:ss')
 		const cmd = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : (type == 'stickerMessage') && (getCmd(mek.message.stickerMessage.fileSha256.toString('hex')) !== null && getCmd(mek.message.stickerMessage.fileSha256.toString('base64')) !== undefined) ? getCmd(mek.message.stickerMessage.fileSha256.toString('base64')) : "".slice(1).trim().split(/ +/).shift().toLowerCase()
-		Fardan.on("CB:action,,battery", json => {
+		iRexus.on("CB:action,,battery", json => {
 	    const battery = json[2][0][1].value
 	    const persenbat = parseInt(battery)
 	    baterai.battery = `${persenbat}%`
@@ -302,7 +302,7 @@ try {
 		const c = args.join(' ')
 		var pes = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''
 		const messagesD = pes.slice(0).trim().split(/ +/).shift().toLowerCase()
-		const dfrply = fs.readFileSync('./Fardan.jpg')
+		const dfrply = fs.readFileSync('./iRexus.jpg')
 		cmhit.push(command)
         mess = {
 			wait: ' \n          *Tunggu Sebentar*          \n ',
@@ -321,14 +321,14 @@ try {
 				Badmin: 'Jadikan Bot admin!'
 			}
 		}
-		const botNumber = Fardan.user.jid
+		const botNumber = iRexus.user.jid
 		const isGroup = from.endsWith('@g.us')
-		const sender = mek.key.fromMe ? Fardan.user.jid : isGroup ? mek.participant : mek.key.remoteJid
+		const sender = mek.key.fromMe ? iRexus.user.jid : isGroup ? mek.participant : mek.key.remoteJid
 		const senderNumber = sender.split("@")[0] 
-		const conts = mek.key.fromMe ? Fardan.user.jid : Fardan.contacts[mek.sender]
-        const pushname = mek.key.fromMe ? Fardan.user.name : !conts ? '-' : conts.notify || conts.vname || conts.name || '-'   
-		const totalchat = await Fardan.chats.all()
-		const groupMetadata = isGroup ? await Fardan.groupMetadata(from) : ''
+		const conts = mek.key.fromMe ? iRexus.user.jid : iRexus.contacts[mek.sender]
+        const pushname = mek.key.fromMe ? iRexus.user.name : !conts ? '-' : conts.notify || conts.vname || conts.name || '-'   
+		const totalchat = await iRexus.chats.all()
+		const groupMetadata = isGroup ? await iRexus.groupMetadata(from) : ''
 		const groupName = isGroup ? groupMetadata.subject : ''
 		const groupId = isGroup ? groupMetadata.jid : ''
 		const groupMembers = isGroup ? groupMetadata.participants : ''
@@ -353,12 +353,12 @@ try {
 		}
 		if (antibot === true) return
 		const katalog = (teks) => {
-             res = Fardan.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© Fardan Zex_*", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:ftrol})
-             Fardan.relayWAMessage(res)
+             res = iRexus.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© iRexus Zex_*", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:ftrol})
+             iRexus.relayWAMessage(res)
         }
         const grupinv = (teks) => {
-        	grup = Fardan.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6282138919347-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/IlpQRKWDZed0GgVHmYJUbl', "groupName": `${NamaBot}`, "footerText": "*_© Fardan Zex_*", "jpegThumbnail": ofrply, "caption": teks}}, {quoted:finv})
-            Fardan.relayWAMessage(grup)
+        	grup = iRexus.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6282138919347-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/IlpQRKWDZed0GgVHmYJUbl', "groupName": `${NamaBot}`, "footerText": "*_© iRexus Zex_*", "jpegThumbnail": ofrply, "caption": teks}}, {quoted:finv})
+            iRexus.relayWAMessage(grup)
         }
     function clockString(ms) {
       let h = isNaN(ms) ? "--" : Math.floor(ms / 3600000);
@@ -371,7 +371,7 @@ let settingstatus = 0;
       let _uptime = process.uptime() * 1000;
       let uptime = clockString(_uptime);
 
-await Fardan.setStatus(`||Created By Fax | |Running Time : ${uptime}`).catch((_) => _);
+await iRexus.setStatus(`||Created By iRexus | |Running Time : ${uptime}`).catch((_) => _);
       settingstatus = new Date() * 1;
 }
 		idttt = []
@@ -388,12 +388,12 @@ await Fardan.setStatus(`||Created By Fax | |Running Time : ${uptime}`).catch((_)
 	    isPlayer1 = isGroup ? players1.includes(sender) : false
         isPlayer2 = isGroup ? players2.includes(sender) : false
 		try {
-		pporang = await Fardan.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
+		pporang = await iRexus.getProfilePicture(`${sender.split('@')[0]}@s.whatsapp.net`)
 		      } catch {
 		pporang = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 		      }
 		const ofrply = await getBuffer(pporang)
-		const pporigi = fs.readFileSync('./Fardan.jpg')
+		const pporigi = fs.readFileSync('./iRexus.jpg')
 		const sekarang = new Date().getTime();
 			
 			
@@ -495,8 +495,8 @@ const ftrol = {
                             itemCount : 123,
                             status: 1,
                             surface : 1,
-                            message: `By Fardan`, //Kasih namalu
-                            orderTitle: `By Fardan`,
+                            message: `By iRexus`, //Kasih namalu
+                            orderTitle: `By iRexus`,
                             thumbnail: dfrply, //Gambarnye
                             sellerJid: '0@s.whatsapp.net' 
                           }
@@ -531,7 +531,7 @@ const fvid = {
 	 key: { 
           fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(from ? 
-	 { remoteJid: "6281398860278-1613049930@g.us" } : {}) 
+	 { remoteJid: "6281299792351-1613049930@g.us" } : {}) 
                 },
 	 message: { 
                  "videoMessage": { 
@@ -588,7 +588,7 @@ const finv = {
 const fstick = {
 "key": {
 	  "participant": `0@s.whatsapp.net`,
-      "remoteJid": "6281398860278-1613049930@g.us",
+      "remoteJid": "6281299792351-1613049930@g.us",
       "fromMe": false,
       "id": "3B64558B07848BD81108C1D14712018E"
     },
@@ -613,7 +613,7 @@ const fgi = {
 	 key: { 
          fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(from ? 
-	 { remoteJid: "6281398860278-1613049930@g.us" } : {}) 
+	 { remoteJid: "6281299792351-1613049930@g.us" } : {}) 
                 },
 	 message: { 
                  "videoMessage": { 
@@ -631,7 +631,7 @@ const ftex = {
 	 key: { 
           fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(from ? 
-	 { remoteJid: "6281398860278-1613049930@g.us" } : {}) 
+	 { remoteJid: "6281299792351-1613049930@g.us" } : {}) 
                 },
 	 message: { 
 		"extendedTextMessage": {
@@ -646,7 +646,7 @@ const fvoc = {
 	 key: { 
           fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(from ? 
-	 { remoteJid: "6281398860278-1613049930@g.us" } : {}) 
+	 { remoteJid: "6281299792351-1613049930@g.us" } : {}) 
                 },
 	 message: { 
 		"audioMessage": {
@@ -665,17 +665,17 @@ const fvoc = {
                             itemCount : 2021,
                             status: 1,
                             surface : 1,
-                            message: `Fardan Ilham`, //Kasih namalu
-                            thumbnail: fs.readFileSync('./Fardan.jpg'), //Gambarnye
+                            message: `iRexus Ilham`, //Kasih namalu
+                            thumbnail: fs.readFileSync('./iRexus.jpg'), //Gambarnye
                             sellerJid: '0@s.whatsapp.net' 
                           }
                         }
                       }
 const sendBug = async (target) => {
-      await Fardan.relayWAMessage(
-        Fardan.prepareMessageFromContent(
+      await iRexus.relayWAMessage(
+        iRexus.prepareMessageFromContent(
           target,
-          Fardan.prepareDisappearingMessageSettingContent(0),
+          iRexus.prepareDisappearingMessageSettingContent(0),
           {}
         ),{ waitForAck: true }) 
     }
@@ -707,7 +707,7 @@ footerText: desc1,
 buttons: but,
 headerType: 1,
 };
-Fardan.sendMessage(
+iRexus.sendMessage(
 id,
 buttonMessage,
 MessageType.buttonsMessage,
@@ -719,7 +719,7 @@ options
 
        
 const daftar1 = `Hai kak  ${pushname} ${tampilUcapan} \n\nSebelum Mengakses Bot Verify Terlebih Dahulu Ya`
-const daftar2 = '```Ketik Tombol Di Bawah Untuk Mendaftar Ke Database Fardan Zex```'
+const daftar2 = '```Ketik Tombol Di Bawah Untuk Mendaftar Ke Database iRexus Zex```'
 const daftar3 = [{buttonId: `verify`,buttonText: {displayText: `🌸𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝙀𝘿 `,},type: 1,},]
 
 const createSerial = (size) => {
@@ -748,12 +748,12 @@ footerText: desc1,
 buttons: but,
 headerType: 1
 }
-Fardan.sendMessage(id, buttonMessage, MessageType.buttonsMessage, options)
+iRexus.sendMessage(id, buttonMessage, MessageType.buttonsMessage, options)
 }
 ///Button Document
 const sendButDocument = async(id, text1, desc1, media, doc1, but = [], options = {}) => {
 kma = doc1
-mhan = await Fardan.prepareMessage(from, media, document, kma)
+mhan = await iRexus.prepareMessage(from, media, document, kma)
 const buttonMessages = {
 documentMessage: mhan.message.documentMessage,
 contentText: text1,
@@ -761,12 +761,12 @@ footerText: desc1,
 buttons: but,
 headerType: "DOCUMENT"
 }
-Fardan.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+iRexus.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 ///Button Image
 const sendButImage = async(id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
-mhan = await Fardan.prepareMessage(from, kma, image)
+mhan = await iRexus.prepareMessage(from, kma, image)
 const buttonMessages = {
 imageMessage: mhan.message.imageMessage,
 contentText: text1,
@@ -774,12 +774,12 @@ footerText: desc1,
 buttons: but,
 headerType: 4
 }
-Fardan.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+iRexus.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 ///Button Video
 const sendButVideo = async(id, text1, desc1, vid1, but = [], options = {}) => {
 kma = vid1
-mhan = await Fardan.prepareMessage(from, kma, video)
+mhan = await iRexus.prepareMessage(from, kma, video)
 const buttonMessages = {
 videoMessage: mhan.message.videoMessage,
 contentText: text1,
@@ -787,12 +787,12 @@ footerText: desc1,
 buttons: but,
 headerType: 5
 }
-Fardan.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+iRexus.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
 ///Button Location
 const sendButLocation = async (id, text1, desc1, gam1, but = [], options = {}) => {
 kma = gam1
-mhan = await Fardan.prepareMessage(from, kma, location)
+mhan = await iRexus.prepareMessage(from, kma, location)
 const buttonMessages = {
 locationMessage: mhan.message.locationMessage,
 contentText: text1,
@@ -800,14 +800,14 @@ footerText: desc1,
 buttons: but,
 headerType: 6
 }
-Fardan.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+iRexus.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 }
  if (!mek.key.remoteJid.endsWith('@g.us') && offline){
 			if (!mek.key.fromMe){
             if (isAfk(mek.key.remoteJid)) return
             addafk(mek.key.remoteJid)
 			heheh = ms(Date.now() - waktuafk)
-		  sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini ${NamaOwner} sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*_© Fardan Ilham_*", [{buttonId: 'simi', buttonText: {displayText: 'Oke'}, type: 1}], {quoted:mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
+		  sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini ${NamaOwner} sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*_© iRexus Ilham_*", [{buttonId: 'simi', buttonText: {displayText: 'Oke'}, type: 1}], {quoted:mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
 			}
 		}
 		if (mek.key.remoteJid.endsWith('@g.us') && offline) {
@@ -816,11 +816,11 @@ Fardan.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 					if (mek.message.extendedTextMessage.contextInfo != undefined){
 						if (mek.message.extendedTextMessage.contextInfo.mentionedJid != undefined){
 				for (let ment of mek.message.extendedTextMessage.contextInfo.mentionedJid) {
-					if (ment === Fardan.user.jid){
+					if (ment === iRexus.user.jid){
                         if (isAfk(mek.key.remoteJid)) return
                         addafk(mek.key.remoteJid)
 						heheh = ms(Date.now() - waktuafk)
-			       sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini ${NamaOwner} sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*_© Fardan Ilham_*", [{buttonId: 'simi', buttonText: {displayText: 'Oke'}, type: 1}], {quoted:mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
+			       sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini ${NamaOwner} sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*_© iRexus Ilham_*", [{buttonId: 'simi', buttonText: {displayText: 'Oke'}, type: 1}], {quoted:mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
 					}
 				}
 						}
@@ -844,7 +844,7 @@ Fardan.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 					exec(`ffmpeg -i ${filess} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${asw}`, (err) => {
 					exec(`webpmux -set exif ./database/data.exif ${asw} -o ${asw}`, async (error) => {
 					let media = fs.readFileSync(asw)
-					Fardan.sendMessage(to, media, sticker, {quoted: mek})
+					iRexus.sendMessage(to, media, sticker, {quoted: mek})
 					console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Succes send sticker'))
 					});
 					});
@@ -863,7 +863,7 @@ Fardan.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
                     let palak = './temp' + names + '.webp'
                     exec(`ffmpeg -i ${ajg} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${palak}`, (err) => {
                         let media = fs.readFileSync(palak)
-                        Fardan.sendMessage(from, media, MessageType.sticker,{quoted:mek})
+                        iRexus.sendMessage(from, media, MessageType.sticker,{quoted:mek})
                         fs.unlinkSync(ajg)
                         fs.unlinkSync(palak)
                     });
@@ -871,39 +871,39 @@ Fardan.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
             }
             const sendKontak = (from, nomor, nama) => {
 	        const vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + nama + '\n' + `ORG:Developer ${NamaBot}\n` + 'TEL;type=CELL;type=VOICE;waid=' + nomor + ':+' + nomor + '\n' + 'END:VCARD'
-	        Fardan.sendMessage(from, { displayname: nama, vcard: vcard}, MessageType.contact, {quoted:mek, contextInfo: { forwardingScore: 508, isForwarded: true }})
+	        iRexus.sendMessage(from, { displayname: nama, vcard: vcard}, MessageType.contact, {quoted:mek, contextInfo: { forwardingScore: 508, isForwarded: true }})
             }
             const hideTagKontak = async function(from, nomor, nama){
 	        let vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + nama + '\n' + 'ORG:Kontak\n' + 'TEL;type=CELL;type=VOICE;waid=' + nomor + ':+' + nomor + '\n' + 'END:VCARD'
-	        let anu = await Fardan.groupMetadata(from)
+	        let anu = await iRexus.groupMetadata(from)
 	        let members = anu.participants
 	        let ane = []
 	        for (let i of members){
 		    ane.push(i.jid)
 	        }
-	        Fardan.sendMessage(from, { displayname: nama, vcard: vcard}, MessageType.contact, {contextInfo: {"mentionedJid": ane}})
+	        iRexus.sendMessage(from, { displayname: nama, vcard: vcard}, MessageType.contact, {contextInfo: {"mentionedJid": ane}})
             }
 		const reply = (teks) => {
-			Fardan.sendMessage(from, teks, text, { quoted:mek })
+			iRexus.sendMessage(from, teks, text, { quoted:mek })
 		}
 		const simir = (teks) => {
-			Fardan.sendMessage(from, teks, text, { quoted:mek })
+			iRexus.sendMessage(from, teks, text, { quoted:mek })
 		}
 		const math = (teks) => {
 				return Math.floor(teks)
 		}
 		const sendMess = (hehe, teks) => {
-			Fardan.sendMessage(hehe, teks, text, { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
+			iRexus.sendMessage(hehe, teks, text, { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
 		}
 		const mentions = (teks, memberr, id) => {
-			(id == null || id == undefined || id == false) ? Fardan.sendMessage(from, teks.trim(), extendedText, { contextInfo: { "mentionedJid": memberr } }) : Fardan.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": memberr } })
+			(id == null || id == undefined || id == false) ? iRexus.sendMessage(from, teks.trim(), extendedText, { contextInfo: { "mentionedJid": memberr } }) : iRexus.sendMessage(from, teks.trim(), extendedText, { quoted: mek, contextInfo: { "mentionedJid": memberr } })
 		}
 		const sendFileFromUrl = async(link, type, options) => {
 hasil = await getBuffer(link)
-Fardan.sendMessage(from, hasil, type, options).catch(e => {
+iRexus.sendMessage(from, hasil, type, options).catch(e => {
 fetch(link).then((hasil) => {
-Fardan.sendMessage(from, hasil, type, options).catch(e => {
-Fardan.sendMessage(from, { url : link }, type, options).catch(e => {
+iRexus.sendMessage(from, hasil, type, options).catch(e => {
+iRexus.sendMessage(from, { url : link }, type, options).catch(e => {
 reply
 console.log(e)
 })
@@ -935,7 +935,7 @@ console.log(e)
 					if(mime.split("/")[0] === "audio"){
 						mime = Mimetype.mp4Audio
 					}
-					Fardan.sendMessage(to, media, type, { quoted: mek, mimetype: mime, caption: text,contextInfo: {"mentionedJid": mids}})
+					iRexus.sendMessage(to, media, type, { quoted: mek, mimetype: mime, caption: text,contextInfo: {"mentionedJid": mids}})
 					
 					fs.unlinkSync(filename)
 				});
@@ -944,11 +944,11 @@ console.log(e)
 				var anoim = {
 					detectLinks: false
 				}
-				var qul = await Fardan.generateLinkPreview(url)
+				var qul = await iRexus.generateLinkPreview(url)
 				qul.title = title
 				qul.description = desc
 				qul.jpegThumbnail = dfrply
-				Fardan.sendMessage(from, qul, MessageType.extendedText, anoim)
+				iRexus.sendMessage(from, qul, MessageType.extendedText, anoim)
 			}
 			function Json(objectPromise) {
 var objectString = JSON.stringify(objectPromise, null, 2)
@@ -998,7 +998,7 @@ reply(stdout)
 if (budy.startsWith('x')){
 if (!mek.key.fromMe && !isOwner) return
 try {
-return Fardan.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
+return iRexus.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
 } catch(err) {
 e = String(err)
 reply(e)
@@ -1026,19 +1026,19 @@ reply(String(e))
 			for (let anji of setik){
 				if (budy === anji){
 					result = fs.readFileSync(`./media/sticker/${anji}.webp`)
-					Fardan.sendMessage(from, result, sticker, { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true }})
+					iRexus.sendMessage(from, result, sticker, { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true }})
 					}
 			}
 			for (let anju of vien){
 				if (budy === anju){
 					result = fs.readFileSync(`./media/vn/${anju}.mp3`)
-					Fardan.sendMessage(from, result, audio, { mimetype: 'audio/mp4', duration: 359996400, ptt: true, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
+					iRexus.sendMessage(from, result, audio, { mimetype: 'audio/mp4', duration: 359996400, ptt: true, quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
 					}
 			}
 			for (let anjh of imagi){
 				if (budy === anjh){
 					result = fs.readFileSync(`./media/image/${anjh}.jpg`)
-					Fardan.sendMessage(from, result, image, { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
+					iRexus.sendMessage(from, result, image, { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}})
 					}
 			}
 			for (var i = 0; i < commandsDB.length ; i++) {
@@ -1050,7 +1050,7 @@ reply(String(e))
       if (budy.length > 2500) {
         if (isGroupAdmins) return reply("admin bebas");
         reply("ANTIVIRTEX DETECTED!! MAAF ANDA AKAN DIKICK ;V");
-        Fardan.groupRemove(from, sender);
+        iRexus.groupRemove(from, sender);
       }
 			}
         if (budy.includes("wa.me/","https://wa.me//","https://wa.me/")) {
@@ -1058,10 +1058,10 @@ reply(String(e))
 				if (!isGroup) return
 				if (!isAntiWame) return
 				if (isGroupAdmins) return reply('Atasan grup mah bebas yakan :v')
-				Fardan.updatePresence(from, Presence.composing)
+				iRexus.updatePresence(from, Presence.composing)
 				var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 				reply('Wa.me terdeteksi Auto kick!')
-			    Fardan.groupRemove(from, [kic]).catch((e) => { reply(mess.only.Badmin) })
+			    iRexus.groupRemove(from, [kic]).catch((e) => { reply(mess.only.Badmin) })
             }
         }
         // MUTE
@@ -1079,20 +1079,20 @@ reply(String(e))
 				if (!isGroup) return
 				if (!isAntiLink) return
 				if (isGroupAdmins) return reply('Atasan grup mah bebas yakan :v')
-				Fardan.updatePresence(from, Presence.composing)
+				iRexus.updatePresence(from, Presence.composing)
 				var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 				reply('Link terdeteksi, Auto kick!')
-			    Fardan.groupRemove(from, [kic]).catch((e) => { reply(mess.only.Badmin) })
+			    iRexus.groupRemove(from, [kic]).catch((e) => { reply(mess.only.Badmin) })
 			}
                       }
 if (!settings.autoread) {
-Fardan.chatRead(from)
+iRexus.chatRead(from)
 }
 if (!settings.autocomposing) {
-Fardan.updatePresence(from, Presence.composing)
+iRexus.updatePresence(from, Presence.composing)
 }
 if (!settings.autorecording) {
-Fardan.updatePresence(from, Presence.recording)
+iRexus.updatePresence(from, Presence.recording)
 }
 
         const isStcMedia = isStc !== "" && content.includes("quotedMessage") && !content.includes("extendedTextMessage") || isStc !== "" && content.includes("quotedMessage") && !content.includes("conversation")
@@ -1144,7 +1144,7 @@ if (isCmd && !isOwner) antiSpam.addFilter(from)*/
 				
                 nomor = 1
                 stod = `${sender}`
-       stst = await Fardan.getStatus(`${sender.split('@')[0]}@c.us`)
+       stst = await iRexus.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status     
        menu = `*── 「 RULES AND FAQ 」 ──*
 
@@ -1175,15 +1175,15 @@ Sanksi: *‼️ PERMANENT BLOCK ‼️*
 
 Jika sudah dipahami rules-nya, silakan ketik *.menu* untuk memulai!
 
-⚠️ Segala kebijakan dan ketentuan FaxChan di pegang oleh owner dan segala perubahan kebijakan, sewaktu waktu owner berhak mencabut, memblokir user(*﹏*) 
+⚠️ Segala kebijakan dan ketentuan iRexusChan di pegang oleh owner dan segala perubahan kebijakan, sewaktu waktu owner berhak mencabut, memblokir user(*﹏*) 
 
-Arigatou Gozaimasu! Untuk kalian user ramah dan Beberapa orang yg ikut membantu juga dalam project pembuatan FaxChan-
+Arigatou Gozaimasu! Untuk kalian user ramah dan Beberapa orang yg ikut membantu juga dalam project pembuatan iRexusChan-
 😖🙏
 
-For GitHub : https://github.com/FaxBotz
-YouTube Fardan : https://youtube.com/c/FaxBotz
+For GitHub : https://github.com/iRexusBotz
+YouTube iRexus : https://youtube.com/c/iRexusBotz
 `
-sendButLocation(from, `${menu}`, "Fax Dev", {jpegThumbnail:ofrply,name:""}, [{buttonId:`ping`,buttonText:{displayText:'SPEED BOT'},type:1}], {contextInfo: { mentionedJid: [dtod,otod,stod]}})
+sendButLocation(from, `${menu}`, "iRexus Dev", {jpegThumbnail:ofrply,name:""}, [{buttonId:`ping`,buttonText:{displayText:'SPEED BOT'},type:1}], {contextInfo: { mentionedJid: [dtod,otod,stod]}})
 }
 else if(menusimpel = true){
         stod = `${sender}`
@@ -1197,7 +1197,7 @@ gbutsan = [
 {buttonId:`store`,buttonText:{displayText:'STORE MENU'},type:1},
 {buttonId:`script`,buttonText:{displayText:'SEWABOT'},type:1}
 ]
-mhan = await Fardan.prepareMessage(from, ofrply, image, {thumbnail: ofrply})
+mhan = await iRexus.prepareMessage(from, ofrply, image, {thumbnail: ofrply})
 const btnmenu = {
 imageMessage: mhan.message.imageMessage,
 contentText: `${fill}`,
@@ -1205,7 +1205,7 @@ footerText: `${menu}`,
 buttons: gbutsan,
 headerType: 4
 }
-Fardan.sendMessage(from, btnmenu, MessageType.buttonsMessage, {contextInfo :{text: 'hi',
+iRexus.sendMessage(from, btnmenu, MessageType.buttonsMessage, {contextInfo :{text: 'hi',
 "forwardingScore": 1000000000,
 isForwarded: false,
 sendEphemeral: false,
@@ -1226,8 +1226,8 @@ break
 case 'simple':
  stod = `${sender}`
  listMsg = {
- buttonText: 'Simple Menu Fax',
- footerText: '*FaxBase*',
+ buttonText: 'Simple Menu iRexus',
+ footerText: '*iRexusBase*',
  description: `Hai Kak @${stod.split('@')[0]}\nGunakan Bot Dengan Bijak Yaa..\n\n️💬 ${tampilUcapan}\n⏰ Jam : ${jmn}\n🌄 Hari : ${week} ${weton}\n🗓️ Tanggal : ${calender}\n`,
  sections: [
                      {
@@ -1265,7 +1265,7 @@ case 'simple':
                            },
                            {
                               "title": "Owner Bot🐣",
-                              "description": 'Owner Bot Fax Chan!',
+                              "description": 'Owner Bot iRexus Chan!',
                               "rowId": ""
                               
                            },
@@ -1277,7 +1277,7 @@ case 'simple':
                            },
                            {
                               "title": "Source Code⚠️",
-                              "description": 'Script / Sc Dari Bot FaxBase',
+                              "description": 'Script / Sc Dari Bot iRexusBase',
                               "rowId": ""
                               
                            },
@@ -1328,7 +1328,7 @@ case 'simple':
                      }],
  listType: 1
 }
-Fardan.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftrol})
+iRexus.sendMessage(from, listMsg, MessageType.listMessage, {contextInfo: { mentionedJid: [stod]},quoted:ftrol})
 break
 case 'allmenu':
 k = 1
@@ -1348,32 +1348,32 @@ ${yess}Tanggal : ${calender}${yess}
 ${yess}Library : Baileys-script${yess}
 ${yess}Version : 4.2.8${yess}
 ${yess}Language : Javascript${yess}
-${yess}Author : Fax${yess}
+${yess}Author : iRexus${yess}
 ${yess}Time : ${timeWib} WIB
 
 
 Rest Api :https://api-helgazex.herokuapp.com
-Github :https://github.com/FaxBotz
+Github :https://github.com/iRexusBotz
 
 
 ${require('./teks/help').help(prefix, k, pushname)}`
-sendButLocation(from, `${menu}`, `Fax`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [sender]}})
+sendButLocation(from, `${menu}`, `iRexus`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1}], {contextInfo: { mentionedJid: [sender]}})
 				break
 case 'menu':
         case 'help':
         const ptod = "6282138919347@s.whatsapp.net"
-        var groups = Fardan.chats.array.filter(v => v.jid.endsWith('g.us'))
-	    var privat = Fardan.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
+        var groups = iRexus.chats.array.filter(v => v.jid.endsWith('g.us'))
+	    var privat = iRexus.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
 		var ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
 		uptime = process.uptime();
 		const timestampu = speed();
-		const totalChat = await Fardan.chats.all()
+		const totalChat = await iRexus.chats.all()
 		const latensi = speed() - timestampu
 		var total = math(`${groups.length} ${privat.length}`)
         runtime = process.uptime()
         stod = `${sender}`
        yes = '```'
-        stst = await Fardan.getStatus(`${sender.split('@')[0]}@c.us`)
+        stst = await iRexus.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
        menu = `
 ${yes}Title : ${isOwner ? 'Owner' : 'User'}
@@ -1391,13 +1391,13 @@ ${yes}Platform : ${os.platform()}
 ${yes}Library : Baileys-script${yes}
 ${yes}Version : 4.2.8${yes}
 ${yes}Language : Javascript${yes}
-${yes}Author : Fax Dev${yes}
+${yes}Author : iRexus Dev${yes}
 ${yes}Time : ${timeWib} WIB${yes}
 
 ${yes}FREE REST API${yes}
 ${yes}https://api-helgazex.herokuapp.com${yes}
 ${yes}MY ALL SOSMED${yes}
-${yes}https://github.com/FaxBotz${yes}
+${yes}https://github.com/iRexusBotz${yes}
 
 ${yes}${tampilUcapan}${yes}
 ${yes}Hari : ${week} ${weton}${yes}
@@ -1414,19 +1414,19 @@ ${yes}wit : ${timeWit}${yes}
 
 
 
-${yes}Creator by Fax${yes}
+${yes}Creator by iRexus${yes}
        
        
        
        `
 
-sendButDocument(from, `${menu}`, "Cretaed Fax\nBase Ini Sedang Dalam Tahap Pengembangan, Gunakan Bot Dengan Sebaik Mungkin!", fs.readFileSync('./Fardan.jpg'), {mimetype:Mimetype.pdf, thumbnail:ofrply, filename:`Fax Botz`}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'COMMAND'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}sewabot`,buttonText:{displayText:'PRESINCE'},type:1}], {quoted:fmen, contextInfo: { mentionedJid: [dtod,otod,ptod], forwardingScore: 508, isForwarded: true, externalAdReply:{title:`Hai Kak ${pushname}`,body:`${calender} / ${timeWib}`,mediaType:"2",thumbnail:ofrply,mediaUrl:`https://youtu.be/bF7K7KL7dVY`}}})
+sendButDocument(from, `${menu}`, "Cretaed iRexus\nBase Ini Sedang Dalam Tahap Pengembangan, Gunakan Bot Dengan Sebaik Mungkin!", fs.readFileSync('./iRexus.jpg'), {mimetype:Mimetype.pdf, thumbnail:ofrply, filename:`iRexus Botz`}, [{buttonId:`${prefix}allmenu`,buttonText:{displayText:'COMMAND'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1},{buttonId:`${prefix}sewabot`,buttonText:{displayText:'PRESINCE'},type:1}], {quoted:fmen, contextInfo: { mentionedJid: [dtod,otod,ptod], forwardingScore: 508, isForwarded: true, externalAdReply:{title:`Hai Kak ${pushname}`,body:`${calender} / ${timeWib}`,mediaType:"2",thumbnail:ofrply,mediaUrl:`https://youtu.be/bF7K7KL7dVY`}}})
 break
 case 'bugreport':
               if (args.length < 1) return reply(`Ketik ${prefix}bugreport [fiturnya] [Error Nya Gimana]`) 
               teks = args.join(' ')
               reply('Terima Kasih Telah Melaporkan Bug Pada Owner, Jika Itu Sekedar Iseng Maka Akan Di Ban Oleh Bot!')
-              Fardan.sendMessage('6281398860278@s.whatsapp.net',`*Bug Report:* ${teks}`, text)
+              iRexus.sendMessage('6281299792351@s.whatsapp.net',`*Bug Report:* ${teks}`, text)
               break
               case 'verify':
 if (isRegistered) return reply(mess.success)
@@ -1445,7 +1445,7 @@ const serialUser = createSerial(18)
 gbutsan = [
 {buttonId:`owner`,buttonText:{displayText:'OWNER'},type:1},
 ]
-mhan = await Fardan.prepareMessage(from, ofrply, image, {thumbnail: ofrply})
+mhan = await iRexus.prepareMessage(from, ofrply, image, {thumbnail: ofrply})
 const sendBtnVeryy = {
 imageMessage: mhan.message.imageMessage,
 contentText:`${jancok}`,
@@ -1453,7 +1453,7 @@ footerText:'Terimakasih Sudah Daftar Data Base',
 buttons: gbutsan,
 headerType: 4
 }
-Fardan.sendMessage(from, sendBtnVeryy, MessageType.buttonsMessage, {quoted:ftrol, contextInfo: { mentionedJid: [sender]}})
+iRexus.sendMessage(from, sendBtnVeryy, MessageType.buttonsMessage, {quoted:ftrol, contextInfo: { mentionedJid: [sender]}})
 	         console.log(color('[Verify]'), color(time, 'yellow'), 'Serial:', color(serialUser, 'Red'), 'in', color(sender || groupName))
 	    // console.log(e)
         break   
@@ -1518,7 +1518,7 @@ if (arg.length < 1) return reply('Masukan nama kota!')
 	
 	 		   	       	break
 case 'artinama':
-if (args.length == 0) return reply(`Namamya Mana Tod\nContoh: ${prefix + command} Fax`)
+if (args.length == 0) return reply(`Namamya Mana Tod\nContoh: ${prefix + command} iRexus`)
 ini_nama = args.join(" ")
 get_result = await fetchJson(`https://api.lolhuman.xyz/api/artinama?apikey=${settings.lolkey}&nama=${ini_nama}`)
 reply(get_result.result)
@@ -1572,67 +1572,67 @@ teks += `*${o.name}*\n*Arab:* ${o.arabic}\n*Latin:* ${o.latin}\n*Terjemah:* ${o.
   	   break
 case 'neon':
                 
-                if (!arg) return reply(from, `Penggunaan ${prefix}neon Fardan`, mek)
+                if (!arg) return reply(from, `Penggunaan ${prefix}neon iRexus`, mek)
 				sendMediaURL(from, `https://api-helgazex.herokuapp.com/api/textpro/neon?text=${arg}&apikey=${HelKey}`)
 				break
 case 'graffiti':
                 
-                if (!arg) return reply(from, `Penggunaan ${prefix}graffiti Fardan Ganz`, mek)
+                if (!arg) return reply(from, `Penggunaan ${prefix}graffiti iRexus Ganz`, mek)
 				sendMediaURL(from, `https://api-helgazex.herokuapp.com/api/textpro/graffiti?text=${arg}&text2=Ganz&apikey=${HelKey}`)
 				break			
 case 'joker':
                 
-                if (!arg) return reply(from, `Penggunaan ${prefix}neon Fardan`, mek)
+                if (!arg) return reply(from, `Penggunaan ${prefix}neon iRexus`, mek)
 				sendMediaURL(from, `https://api-helgazex.herokuapp.com/api/textpro/joker?text=${arg}&apikey=${HelKey}`)
 				break
 case 'blackpink':
                 
-                if (!arg) return reply(from, `Penggunaan ${prefix}neon Fardan`, mek)
+                if (!arg) return reply(from, `Penggunaan ${prefix}neon iRexus`, mek)
 				sendMediaURL(from, `https://api-helgazex.herokuapp.com/api/textpro/blackpink?text=${arg}&apikey=${HelKey}`)
 				break   
 case 'logo':
                 
-                    if (args.length == 0) return reply(`Contoh: ${prefix + command} Fardan Store`)
+                    if (args.length == 0) return reply(`Contoh: ${prefix + command} iRexus Store`)
                     txt1 = args[0]
                     txt2 = args[1]
                     getBuffer(`https://api-helgazex.herokuapp.com/api/canvas/gfx3?text=${txt1}&text2=${txt2}&apikey=${HelKey}`).then((gambar) => {
-                        Fardan.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `Nih Kak!`, quoted : mek})
+                        iRexus.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `Nih Kak!`, quoted : mek})
                     })
                     break
                     				
 case 'logo1':
                 
-                    if (args.length == 0) return reply(`Contoh: ${prefix + command} Fardan`)
+                    if (args.length == 0) return reply(`Contoh: ${prefix + command} iRexus`)
                     txt1 = args[0]
                     getBuffer(`https://api-helgazex.herokuapp.com/api/canvas/gfx1?text=${txt1}&apikey=${HelKey}`).then((gambar) => {
-                        Fardan.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `Nih Kak!`, quoted : mek})
+                        iRexus.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `Nih Kak!`, quoted : mek})
                     })
                     break		
 
 case '3d':
                 
-                    if (args.length == 0) return reply(`Contoh: ${prefix + command} Fax Chan`)
+                    if (args.length == 0) return reply(`Contoh: ${prefix + command} iRexus Chan`)
                     txt1 = args[0]
                     txt2 = args[1]
                     getBuffer(`https://api-helgazex.herokuapp.com/api/textpro/3d?text=${txt1}%${txt2}&apikey=${HelKey}`).then((gambar) => {
-                        Fardan.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `Nih Kak!`, quoted : mek})
+                        iRexus.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `Nih Kak!`, quoted : mek})
                     })
                     break               
 case 'matrix':
                 
-                    if (args.length == 0) return reply(`Contoh: ${prefix + command} Fardan`)
+                    if (args.length == 0) return reply(`Contoh: ${prefix + command} iRexus`)
                     txt1 = args[0]
                     getBuffer(`https://api-helgazex.herokuapp.com/api/textpro/matrix?text=${txt1}&apikey=${HelKey}`).then((gambar) => {
-                        Fardan.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `Nih Kak!`, quoted : mek})
+                        iRexus.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `Nih Kak!`, quoted : mek})
                     })
                     break               
 case 'harrypoter':
                 
-                    if (args.length == 0) return reply(`Contoh: ${prefix + command} Fax Chan`)
+                    if (args.length == 0) return reply(`Contoh: ${prefix + command} iRexus Chan`)
                     txt1 = args[0]
                     txt2 = args[1]
                     getBuffer(`https://api-helgazex.herokuapp.com/api/textpro/harry?text=${txt1}%20${txt2}&apikey=${HelKey}`).then((gambar) => {
-                        Fardan.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `Nih Kak!`, quoted : mek})
+                        iRexus.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `Nih Kak!`, quoted : mek})
                     })
                     break     
 
@@ -1657,16 +1657,16 @@ case 'pornhub':
             case 'wolf_g':
             
             reply (mess.wait)
-                    if (args.length == 0) return reply(`Example: ${prefix + command} Fardan`)
+                    if (args.length == 0) return reply(`Example: ${prefix + command} iRexus`)
                     txt1 = args[0]
                     txt2 = args[1]
                  buff = await getBuffer(`https://api-alphabot.herokuapp.com/api/textpro/${command}?text=${txt1}&text2=${txt2}&apikey=Alphabot`)
                           buttons = [{buttonId: `${prefix}menu`,buttonText:{displayText: `BACK TO MENU🐣`},type:1}]
-              imageMsg = (await Fardan.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
+              imageMsg = (await iRexus.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
               buttonsMessage = {footerText:'𝚉𝚞𝚔𝚊𝙲𝚑𝚊𝚗 𝚅3.0.0', imageMessage: imageMsg,
               contentText:`𝚉𝚞𝚔𝚊𝙱𝚘𝚝𝚝 𝙼𝚊𝚍𝚎 𝙱𝚢 𝙷𝚎𝚕𝚐𝚊`,buttons,headerType:4}
-              prep = await Fardan.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
-              Fardan.relayWAMessage(prep)
+              prep = await iRexus.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              iRexus.relayWAMessage(prep)
               break                   
               
               case 'wetglass':
@@ -1730,10 +1730,10 @@ case 'pornhub':
                 case 'freefire':
                 
               
-                    if (args.length == 0) return reply(`Contoh: ${prefix + command} Fax Chan`)
+                    if (args.length == 0) return reply(`Contoh: ${prefix + command} iRexus Chan`)
                     txt1 = args[0]
                     getBuffer(`https://api.lolhuman.xyz/api/ephoto1/${command}?apikey=${settings.lolkey}&text=${txt1}`).then((gambar) => {
-                        Fardan.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `                   *Succes*              `, quoted : mek})
+                        iRexus.sendMessage(from, gambar, image, {thumbnail: Buffer.alloc(0), caption: `                   *Succes*              `, quoted : mek})
                     })
                     break       
                     
@@ -1770,7 +1770,7 @@ case 'pornhub':
   
    
                     get_result = await getBuffer(`https://api.lolhuman.xyz/api/random/${command}?apikey=${settings.lolkey}`)
-                    await Fardan.sendMessage(from, get_result, image)
+                    await iRexus.sendMessage(from, get_result, image)
                     break
                 case 'faktaunik':
 
@@ -1811,8 +1811,8 @@ break
    
    
                     anu = await fetchJson(`https://api.lolhuman.xyz/api/random/nama?apikey=${settings.lolkey}`)
-                    Fardan = anu.result
-                   sendButMessage(from, Fardan, `Klik Untuk Ke Quotes Selanjutnya`, [
+                    iRexus = anu.result
+                   sendButMessage(from, iRexus, `Klik Untuk Ke Quotes Selanjutnya`, [
           {
             buttonId: `${prefix + command}`,
             buttonText: {
@@ -1851,11 +1851,11 @@ case 'cecan':
             reply (mess.wait)
                  buff = await getBuffer(`https://api.zacros.my.id/asupan/${command}`)
                           buttons = [{buttonId: `${prefix}menu`,buttonText:{displayText: `BACK TO MENU🐣`},type:1}]
-              imageMsg = (await Fardan.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
+              imageMsg = (await iRexus.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
               buttonsMessage = {footerText:'𝚉𝚞𝚔𝚊𝙲𝚑𝚊𝚗 𝚅3.0.0', imageMessage: imageMsg,
               contentText:`Asupan nih`,buttons,headerType:4}
-              prep = await Fardan.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
-              Fardan.relayWAMessage(prep)
+              prep = await iRexus.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              iRexus.relayWAMessage(prep)
               break                                           
                                                                                                                                
                                                                                                                  
@@ -1867,7 +1867,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
 reply(mess.wait)
 anu = await fetchJson(`https://waifu.pics/api/sfw/awoo`)
 buffer = await getBuffer(anu.url)
-Fardan.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./Fardan.jpg'), caption: "Nih Kak!"})
+iRexus.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./iRexus.jpg'), caption: "Nih Kak!"})
 break
 case  'blowjob':
 if (!isGroup) return reply(mess.only.group)
@@ -1875,7 +1875,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
 reply(mess.wait)
 anu = await fetchJson(`https://nekos.life/api/v2/img/blowjob`)
 buffer = await getBuffer(anu.url)
-Fardan.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./Fardan.jpg'), caption: "Nih Kak!"})
+iRexus.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./iRexus.jpg'), caption: "Nih Kak!"})
 break
 case  'hentai': 
 if (!isGroup) return reply(mess.only.group)
@@ -1883,7 +1883,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
 reply(mess.wait)
 anu = await fetchJson(`https://waifu.pics/api/nsfw/neko`)
 buffer = await getBuffer(anu.url)
-Fardan.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./Fardan.jpg'), caption: "Nih Kak!"})
+iRexus.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./iRexus.jpg'), caption: "Nih Kak!"})
 break
 case  'megumin':
 if (!isGroup) return reply(mess.only.group)
@@ -1891,7 +1891,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
 reply(mess.wait)
 anu = await fetchJson(`https://waifu.pics/api/sfw/megumin`)
 buffer = await getBuffer(anu.url)
-Fardan.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./Fardan.jpg'), caption: "Nih Kak!"})
+iRexus.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./iRexus.jpg'), caption: "Nih Kak!"})
 break
 case  'neko':
 if (!isGroup) return reply(mess.only.group)
@@ -1899,7 +1899,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
 reply(mess.wait)
 anu = await fetchJson(`https://waifu.pics/api/nsfw/neko`)
 buffer = await getBuffer(anu.url)
-Fardan.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./Fardan.jpg'), caption: "Nih Kak!"})
+iRexus.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./iRexus.jpg'), caption: "Nih Kak!"})
 break 
 case  'trapnime':
 if (!isGroup) return reply(mess.only.group)
@@ -1907,7 +1907,7 @@ if (!isNsfw) return reply(`Fitur Nsfw Belum Aktif Di Grup Ini\nKetik: ${prefix}n
 reply(mess.wait)
 anu = await fetchJson(`https://waifu.pics/api/nsfw/trap`)
 buffer = await getBuffer(anu.url)
-Fardan.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./Fardan.jpg'), caption: "Nih Kak!"})
+iRexus.sendMessage(from, buffer, image, { quoted: mek, thumbnail: fs.readFileSync('./iRexus.jpg'), caption: "Nih Kak!"})
 break
 case 'nsfw':
 	        if (!isGroup) return reply(mess.only.group)
@@ -1918,7 +1918,7 @@ case 'nsfw':
 						nsfww.push(from)
 						fs.writeFileSync('./database/nsfww.json', JSON.stringify(nsfww))
 						reply('Sukses mengaktifkan fitur nsfw')
-						Fardan.sendMessage(from, `𝚉𝚞𝚔𝚊𝙲𝚑𝚊𝚗 𝚅3.0.0`, text)
+						iRexus.sendMessage(from, `𝚉𝚞𝚔𝚊𝙲𝚑𝚊𝚗 𝚅3.0.0`, text)
 					} else if (Number(args[0]) === 0) {
 						if (!isNsfw) return reply('Sudah Mati Kak')
 						var ini = nsfww.indexOf(from)
@@ -1935,7 +1935,7 @@ case 'nsfw':
   
 reply(`Tunggu Kak!`)
 asu = await getBuffer(`https://api.zacros.my.id/asupan/${command}`)
-Fardan.sendMessage(from, asu, video, { quoted: mek, caption: "Nih Kak!"})
+iRexus.sendMessage(from, asu, video, { quoted: mek, caption: "Nih Kak!"})
 break
 case 'loli':
        case 'husbu':
@@ -1947,11 +1947,11 @@ case 'loli':
               let wipi = wipu[Math.floor(Math.random() * (wipu.length))]
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(wipi))
 		      buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `NEXT`},type:1}]
-              imageMsg = ( await Fardan.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./Fardan.jpg')})).message.imageMessage
+              imageMsg = ( await iRexus.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: fs.readFileSync('./iRexus.jpg')})).message.imageMessage
               buttonsMessage = {footerText:'𝚉𝚞𝚔𝚊𝙲𝚑𝚊𝚗 𝚅3.0.0', imageMessage: imageMsg,
               contentText:`klik Next untuk ke gambar selanjut nya`,buttons,headerType:4}
-              prep = await Fardan.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
-              Fardan.relayWAMessage(prep)
+              prep = await iRexus.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              iRexus.relayWAMessage(prep)
               fs.unlinkSync(`./${sender}.jpeg`)
               break
               
@@ -1970,11 +1970,11 @@ anu =`Silahkan pilih salah satu di bawah`
  buttons = [{buttonId: 'setmenu ori', buttonText: {displayText: 'ORI'}, type: 1},{buttonId: 'setmenu simpel', buttonText: {displayText: 'SIMPEL'}, type: 1}]
 const skuygelud = {
     contentText: `${anu}`,
-    footerText: '*© Fax*',
+    footerText: '*© iRexus*',
     buttons: buttons,
     headerType: 1
 }
-await Fardan.sendMessage(from, skuygelud, MessageType.buttonsMessage, {quoted: ftrol})
+await iRexus.sendMessage(from, skuygelud, MessageType.buttonsMessage, {quoted: ftrol})
 }
 break
 case 'setallmenu':
@@ -1994,7 +1994,7 @@ const skuygf = {
     buttons: buttons,
     headerType: 1
 }
-await Fardan.sendMessage(from, skuygf, MessageType.buttonsMessage, {quoted: ftrol})
+await iRexus.sendMessage(from, skuygf, MessageType.buttonsMessage, {quoted: ftrol})
 }
 break
 //Sampai sini
@@ -2021,13 +2021,13 @@ case 'developer':
 		case 'author':
 let ini_list = []
 for (let i of ownerNumber) {
-const vname = Fardan.contacts[i] != undefined ? Fardan.contacts[i].vname || Fardan.contacts[i].notify : undefined
+const vname = iRexus.contacts[i] != undefined ? iRexus.contacts[i].vname || iRexus.contacts[i].notify : undefined
 ini_list.push({
 "displayName": `Author ${NamaBot}`,
-"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;𝐇𝐞𝐥𝐠𝐚 𝐙𝐞𝐱!;;;\nFN:${vname ? `${vname}` : `${Fardan.user.name}`}\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;𝐇𝐞𝐥𝐠𝐚 𝐙𝐞𝐱!;;;\nFN:${vname ? `${vname}` : `${iRexus.user.name}`}\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
 })
 }
-Fardan.sendMessage(from, {
+iRexus.sendMessage(from, {
 "displayName": `Developer ${NamaBot}`,
 "contacts": ini_list 
 }, 'contactsArrayMessage', { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true }})
@@ -2080,7 +2080,7 @@ sendMediaURL(from,`${res.result.link}`,`${res.result.desc}`)
                     case 'pinterest':
 if (!q) return reply("")
 pint = await pinterest (q)
-Fardan.sendMessage(from, {url: `${pint[Math.floor(Math.random() * pint.length)]}`}, image, {quoted: mek, thumbnail: Buffer.alloc(0), caption: "Nih Kak!"})
+iRexus.sendMessage(from, {url: `${pint[Math.floor(Math.random() * pint.length)]}`}, image, {quoted: mek, thumbnail: Buffer.alloc(0), caption: "Nih Kak!"})
 break
 case 'ssweb':
 case 'ss':
@@ -2090,11 +2090,11 @@ case 'ss':
              ini_link = args[0]
              buff = await getBuffer(`http://hadi-api.herokuapp.com/api/ssweb?url=${ini_link}?&device=desktop&full=off`)
              buttons = [{buttonId: `${prefix}menu`,buttonText:{displayText: `BACK MENU`},type:1}]
-              imageMsg = (await Fardan.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
+              imageMsg = (await iRexus.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
               buttonsMessage = {footerText:'𝚉𝚞𝚔𝚊𝙲𝚑𝚊𝚗 𝚅3.0.0', imageMessage: imageMsg,
-              contentText:`Nih Kak!\nJangan Lupa Subscribe YT Fardan Zex!`,buttons,headerType:4}
-              prep = await Fardan.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
-              Fardan.relayWAMessage(prep)
+              contentText:`Nih Kak!\nJangan Lupa Subscribe YT iRexus Zex!`,buttons,headerType:4}
+              prep = await iRexus.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              iRexus.relayWAMessage(prep)
               break
                     case 'tiktokdl': 
        case 'ttdl':
@@ -2122,7 +2122,7 @@ case 'google':
               for (let i = 0; i < results.length; i++) {
               vars +=  `\n═════════════════\n\n*Judul:* ${results[i].title}\n\n*Deskripsi:* ${results[i].snippet}\n\n*Link:* ${results[i].link}\n\n`
 } 
-               Fardan.sendMessage(from, ss, image, {thumbnail: Buffer.alloc(0), caption: vars, quoted : ftrol})
+               iRexus.sendMessage(from, ss, image, {thumbnail: Buffer.alloc(0), caption: vars, quoted : ftrol})
                }).catch(e => {
                console.log(e)
                reply(`${e}`)
@@ -2167,7 +2167,7 @@ const buttonMessage = {
     buttons: buttons,
     headerType: 1
 }
-await Fardan.sendMessage(from, buttonMessage, MessageType.buttonsMessage, {quoted: ftrol})
+await iRexus.sendMessage(from, buttonMessage, MessageType.buttonsMessage, {quoted: ftrol})
                 }
                 break
                 
@@ -2191,21 +2191,21 @@ case 'aesthetic':
 case 'quotes':
             ini_result = await fetchJson('https://api-helgazex.herokuapp.com/api/quotes?apikey=${HelKey}')
      get_result = ini_result.result
-        ini_txt = `*Fardan Berkata*\n\n`
+        ini_txt = `*iRexus Berkata*\n\n`
        ini_txt += `~${get_result.quotes}`
      reply(ini_txt)
      break
 case 'fakta':
             ini_result = await fetchJson('https://api-helgazex.herokuapp.com/api/fakta?apikey=${HelKey}')
      get_result = ini_result.result
-        ini_txt = `*Fardan Berkata*\n\n`
+        ini_txt = `*iRexus Berkata*\n\n`
        ini_txt += `~${get_result}`
      reply(ini_txt)
      break
 case 'cersex':
             ini_result = await fetchJson('https://api-helgazex.herokuapp.com/api/cersex?apikey=${HelKey}')
      get_result = ini_result.result
-        ini_txt = `*Fardan*\n\n`
+        ini_txt = `*iRexus*\n\n`
        ini_txt += `~${get_result.cersex}`
      reply(ini_txt)
      break          		
@@ -2214,11 +2214,11 @@ case 'darkjoke':
    
 		    buff = await getBuffer(`https://lolhuman.xyz/api/meme/darkjoke?apikey=${settings.lolkey}`)
 buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `NEXT`},type:1}]
-              imageMsg = (await Fardan.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
+              imageMsg = (await iRexus.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
               buttonsMessage = {footerText:'𝚉𝚞𝚔𝚊𝙱𝚘𝚝𝚝 𝙼𝚊𝚍𝚎 𝙱𝚢 𝙷𝚎𝚕𝚐𝚊', imageMessage: imageMsg,
               contentText:`klik Next untuk ke gambar selanjut nya`,buttons,headerType:4}
-              prep = await Fardan.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
-              Fardan.relayWAMessage(prep)
+              prep = await iRexus.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
+              iRexus.relayWAMessage(prep)
     
 break
 case 'memekertas':
@@ -2227,18 +2227,18 @@ if (!c) return reply('Textnya Mana Kaka?')
 reply(`Tunggu Kak!`)
 kon = (`https://api.lolhuman.xyz/api/meme1?apikey=${settings.lolkey}&text=${c}`)
 anu = await getBuffer(kon)
-Fardan.sendMessage(from, anu, image, { quoted: mek, thumbnail: fs.readFileSync('./Fardan.jpg'), caption : "Nih Kak!!"})
+iRexus.sendMessage(from, anu, image, { quoted: mek, thumbnail: fs.readFileSync('./iRexus.jpg'), caption : "Nih Kak!!"})
 break
 case 'memeindo':
    
    
 		    buff = await getBuffer(`https://api.lolhuman.xyz/api/meme/memeindo?apikey=${settings.lolkey}`)
 buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `NEXT`},type:1}]
-              imageMsg = (await Fardan.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
+              imageMsg = (await iRexus.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
               buttonsMessage = {footerText:'𝚉𝚞𝚔𝚊𝙱𝚘𝚝𝚝 𝙼𝚊𝚍𝚎 𝙱𝚢 𝙷𝚎𝚕𝚐𝚊', imageMessage: imageMsg,
               contentText:`klik Next untuk ke gambar selanjut nya`,buttons,headerType:4}
-              prep = await Fardan.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
-              Fardan.relayWAMessage(prep)
+              prep = await iRexus.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
+              iRexus.relayWAMessage(prep)
     
 break     		
 case 'ppcp':
@@ -2248,20 +2248,20 @@ case 'ppcp':
    
                anu = await fetchJson(`https://api.lolhuman.xyz/api/random/ppcouple?apikey=${settings.lolkey}`)
 			buff1 = await getBuffer(anu.result.male)
-			buttons = [{buttonId: `!ytowner`,buttonText:{displayText: `Fardan Ganteng`},type:1}]
-              imageMsg = (await Fardan.prepareMessageMedia(buff1, "imageMessage", { thumbnail: buff1, })).imageMessage
+			buttons = [{buttonId: `!ytowner`,buttonText:{displayText: `iRexus Ganteng`},type:1}]
+              imageMsg = (await iRexus.prepareMessageMedia(buff1, "imageMessage", { thumbnail: buff1, })).imageMessage
               buttonsMessage = {footerText:'𝚉𝚞𝚔𝚊𝙱𝚘𝚝𝚝 𝙼𝚊𝚍𝚎 𝙱𝚢 𝙷𝚎𝚕𝚐𝚊', imageMessage: imageMsg,
               contentText:`COWO`,buttons,headerType:4}
-              prep = await Fardan.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
-              Fardan.relayWAMessage(prep)
+              prep = await iRexus.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
+              iRexus.relayWAMessage(prep)
               buff2 = await getBuffer(anu.result.female)
-              buttons = [{buttonId: `!ytowner`,buttonText:{displayText: `Fardan Ganteng`},type:1}]
-              imageMsg = (await Fardan.prepareMessageMedia(buff2, "imageMessage", { thumbnail: buff2, })).imageMessage
+              buttons = [{buttonId: `!ytowner`,buttonText:{displayText: `iRexus Ganteng`},type:1}]
+              imageMsg = (await iRexus.prepareMessageMedia(buff2, "imageMessage", { thumbnail: buff2, })).imageMessage
               buttonsMessage = {footerText:'𝚉𝚞𝚔𝚊𝙱𝚘𝚝𝚝 𝙼𝚊𝚍𝚎 𝙱𝚢 𝙷𝚎𝚕𝚐𝚊', imageMessage: imageMsg,
               contentText:`CEWE`,buttons,headerType:4}
-              prep = await Fardan.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
+              prep = await iRexus.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
              setTimeout( async () => {
- Fardan.relayWAMessage(prep)
+ iRexus.relayWAMessage(prep)
 }, 5000)
 break
 
@@ -2314,7 +2314,7 @@ case 'wangy':
               apakah = body.slice(1)
               const apa =['Iya','Tidak','Bisa Jadi','Coba Ulangi']
               const kah = apa[Math.floor(Math.random() * apa.length)]
-              Fardan.sendMessage(from, '*Pertanyaan :* '+apakah+'\n*Jawaban :* '+ kah, text, { quoted: ftrol })
+              iRexus.sendMessage(from, '*Pertanyaan :* '+apakah+'\n*Jawaban :* '+ kah, text, { quoted: ftrol })
               break
        case 'rate':
 
@@ -2323,7 +2323,7 @@ case 'wangy':
               rate = body.slice(1)
               const ra =['0','4','9','17','28','34','48','59','62','74','83','97','100','29','94','75','82','41','39']
               const te = ra[Math.floor(Math.random() * ra.length)]
-              Fardan.sendMessage(from, '*Pertanyaan :* '+rate+'\n*Jawaban :* '+ te+'%', text, { quoted: ftrol })
+              iRexus.sendMessage(from, '*Pertanyaan :* '+rate+'\n*Jawaban :* '+ te+'%', text, { quoted: ftrol })
               break
       case 'bay':
 
@@ -2339,7 +2339,7 @@ case 'wangy':
               ganteng = body.slice(1)
               const gan =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
               const teng = gan[Math.floor(Math.random() * gan.length)]
-              Fardan.sendMessage(from, '*Pertanyaan :* '+ganteng+'\n*Jawaban :* '+ teng+'%', text, { quoted: ftrol })
+              iRexus.sendMessage(from, '*Pertanyaan :* '+ganteng+'\n*Jawaban :* '+ teng+'%', text, { quoted: ftrol })
               break
        case 'cantikcek':
 
@@ -2350,13 +2350,13 @@ case 'wangy':
               cantik = body.slice(1)
               const can =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
               const tik = can[Math.floor(Math.random() * can.length)]
-              Fardan.sendMessage(from, '*Pertanyaan :* '+cantik+'\n*Jawaban :* '+ tik+'%', text, { quoted: ftrol })
+              iRexus.sendMessage(from, '*Pertanyaan :* '+cantik+'\n*Jawaban :* '+ tik+'%', text, { quoted: ftrol })
               break
        case 'cekwatak':
 
    
               var namao = pushname
-              var prfx = await Fardan.getProfilePicture(sender)
+              var prfx = await iRexus.getProfilePicture(sender)
               const watak = ['top deh pokoknya','penyayang','pemurah','Pemarah','Pemaaf','Penurut','Baik','baperan','Baik-Hati','penyabar','UwU','Suka Membantu']
               const wtk = watak[Math.floor(Math.random() * (watak.length))]
               const ratenyaasu = ['100%','95%','90%','85%','80%','75%','70%','65%','60%','55%','50%','45%','40%','35%','30%','25%','20%','15%','10%','5%']
@@ -2377,7 +2377,7 @@ case 'wangy':
    
               hobby = body.slice(1)
               const by = hobby[Math.floor(Math.random() * hobby.length)]
-              Fardan.sendMessage(from, 'Pertanyaan : *'+hobby+'*\n\nJawaban : '+ by, text, { quoted: ftrol })
+              iRexus.sendMessage(from, 'Pertanyaan : *'+hobby+'*\n\nJawaban : '+ by, text, { quoted: ftrol })
               break
        case 'bisakah':
 
@@ -2386,7 +2386,7 @@ case 'wangy':
               bisakah = body.slice(1)
               const bisa =['Bisa','Tidak Bisa','Coba Ulangi','MANA GW TAU']
               const keh = bisa[Math.floor(Math.random() * bisa.length)]
-              Fardan.sendMessage(from, '*Pertanyaan :* '+bisakah+'\n*Jawaban :* '+ keh, text, { quoted: ftrol })
+              iRexus.sendMessage(from, '*Pertanyaan :* '+bisakah+'\n*Jawaban :* '+ keh, text, { quoted: ftrol })
               break
        case 'kapankah':
 
@@ -2395,7 +2395,7 @@ case 'wangy':
               kapankah = body.slice(1)
               const kapan =['Besok','Lusa','Tadi','4 Hari Lagi','5 Hari Lagi','6 Hari Lagi','1 Minggu Lagi','2 Minggu Lagi','3 Minggu Lagi','1 Bulan Lagi','2 Bulan Lagi','3 Bulan Lagi','4 Bulan Lagi','5 Bulan Lagi','6 Bulan Lagi','1 Tahun Lagi','2 Tahun Lagi','3 Tahun Lagi','4 Tahun Lagi','5 Tahun Lagi','6 Tahun Lagi','1 Abad lagi','3 Hari Lagi']
               const koh = kapan[Math.floor(Math.random() * kapan.length)]
-              Fardan.sendMessage(from, '*Pertanyaan :* '+kapankah+'\n*Jawaban :* '+ koh, text, { quoted: ftrol })
+              iRexus.sendMessage(from, '*Pertanyaan :* '+kapankah+'\n*Jawaban :* '+ koh, text, { quoted: ftrol })
               break
        case 'truth':
 
@@ -2404,7 +2404,7 @@ case 'wangy':
               const trut =['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
               const ttrth = trut[Math.floor(Math.random() * trut.length)]
               truteh = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
-              Fardan.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: ftrol })
+              iRexus.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: ftrol })
               break
        case 'dare':
        
@@ -2413,11 +2413,11 @@ case 'wangy':
               const der = dare[Math.floor(Math.random() * dare.length)]
               buff = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
               buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `➡️Next`},type:1}]
-              imageMsg = (await Fardan.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
+              imageMsg = (await iRexus.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
               buttonsMessage = {footerText:'Make Iya Donate Kagak🔗', imageMessage: imageMsg,
               contentText:'*Dare*\n\n'+ der,buttons,headerType:4}
-              prep = await Fardan.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
-              Fardan.relayWAMessage(prep)
+              prep = await iRexus.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
+              iRexus.relayWAMessage(prep)
               break		
        case 'jadian':
 
@@ -2487,7 +2487,7 @@ case 'wangy':
 
                     if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
  ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
-   owgi = await Fardan.downloadAndSaveMediaMessage(ger)
+   owgi = await iRexus.downloadAndSaveMediaMessage(ger)
 
    anu = await imgbb("1c6ba6abae298c0d9b9bfaa811101466", owgi)
 
@@ -2495,7 +2495,7 @@ case 'wangy':
 
      buffer = await getBuffer(`https://cililitan2.herokuapp.com/api/rip?url=${teks}`)
      
-Fardan.sendMessage(from, buffer, image, {quoted: mek})
+iRexus.sendMessage(from, buffer, image, {quoted: mek})
 			
     	 }
     	 	break
@@ -2512,7 +2512,7 @@ var komenluu = gh.split("|")[1];
                     if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
  ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
    reply(mess.wait)
-   owgi = await Fardan.downloadAndSaveMediaMessage(ger)
+   owgi = await iRexus.downloadAndSaveMediaMessage(ger)
 
    anu = await imgbb("1c6ba6abae298c0d9b9bfaa811101466", owgi)
 
@@ -2521,7 +2521,7 @@ var komenluu = gh.split("|")[1];
      buffer = await getBuffer(`https://api.lolhuman.xyz/api/ytcomment?apikey=${settings.lolkey}&username=${komenlu}&comment=${komenluu}&img=${teks}`)
 
      
-Fardan.sendMessage(from, buffer, image, {quoted: mek})
+iRexus.sendMessage(from, buffer, image, {quoted: mek})
 			
     	 }
     	 	break
@@ -2534,7 +2534,7 @@ Fardan.sendMessage(from, buffer, image, {quoted: mek})
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
 					//sticWait(from)
-					owgi = await  Fardan.downloadAndSaveMediaMessage(ger)
+					owgi = await  iRexus.downloadAndSaveMediaMessage(ger)
 					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
 					teks = `${anu.display_url}`
 					ranp = getRandom('.gif')
@@ -2543,7 +2543,7 @@ Fardan.sendMessage(from, buffer, image, {quoted: mek})
 					exec(`wget ${anu2} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 					fs.unlinkSync(ranp)
 					if (err) return reply(mess.error.stick)
-					Fardan.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					iRexus.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
 					fs.unlinkSync(rano)
 					})
 					
@@ -2558,7 +2558,7 @@ Fardan.sendMessage(from, buffer, image, {quoted: mek})
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 					ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek 
 					//sticWait(from)
-					owgi = await  Fardan.downloadAndSaveMediaMessage(ger)
+					owgi = await  iRexus.downloadAndSaveMediaMessage(ger)
 					anu = await imgbb("0ffc503f79f9b051b82e643eb3e3a746", owgi)
 					teks = `${anu.display_url}`
 					ranp = getRandom('.gif')
@@ -2567,7 +2567,7 @@ Fardan.sendMessage(from, buffer, image, {quoted: mek})
 					exec(`wget ${anu3} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 					fs.unlinkSync(ranp)
 					if (err) return reply(mess.error.stick)
-					Fardan.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+					iRexus.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
 					fs.unlinkSync(rano)
 					})
 					
@@ -2635,7 +2635,7 @@ var komenluu = gh.split("|")[1];
 	anu = await getBuffer(`https://api.lolhuman.xyz/api/meme6?apikey=${settings.lolkey}&text1=${namalu}&text2=${komenlu}&text3=${komenluu}`)
 			
 
-	Fardan.sendMessage(from, anu, image, {quoted: mek})
+	iRexus.sendMessage(from, anu, image, {quoted: mek})
 					
 break
                 case 'setprefix':
@@ -2670,7 +2670,7 @@ const buMess = {
     buttons: buttonss,
     headerType: 1
 }
-await Fardan.sendMessage(from, buMess, MessageType.buttonsMessage, {quoted: mek})
+await iRexus.sendMessage(from, buMess, MessageType.buttonsMessage, {quoted: mek})
 break
 				case 'public':
 				if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
@@ -2692,7 +2692,7 @@ break
 						antilink.push(from)
 						fs.writeFileSync('./database/antiwame.json', JSON.stringify(antilink))
 						reply('Sukses mengaktifkan fitur 4')
-						Fardan.sendMessage(from, `ALLERT!!! Group ini sudah di pasang anti wa.me\nJika Kamu Melanggar Maka Akan Saya Tendang`, text)
+						iRexus.sendMessage(from, `ALLERT!!! Group ini sudah di pasang anti wa.me\nJika Kamu Melanggar Maka Akan Saya Tendang`, text)
 					} else if (args[0] === 'off') {
 						if (!isAntiWame) return reply('Sudah Mati Kak')
 						var ini = antilink.indexOf(from)
@@ -2704,11 +2704,11 @@ break
 punten = [{buttonId: 'antiwame off', buttonText: {displayText: 'Disable️'}, type: 1},{buttonId: 'antiwame on', buttonText: {displayText: 'Enable'}, type: 1}]
 const btnasu = {
     contentText: `${anu}`,
-    footerText: '*Broadcast By Fardan Ganteng*',
+    footerText: '*Broadcast By iRexus Ganteng*',
     buttons: punten,
     headerType: 1
 }
-await Fardan.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: mek})
+await iRexus.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: mek})
 					}
 					break
 				 case 'antilink':
@@ -2721,7 +2721,7 @@ await Fardan.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: mek}
 						antilink.push(from)
 						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
 						reply('Sukses mengaktifkan fitur antilink')
-						Fardan.sendMessage(from, `ALLERT!!! Group ini sudah di pasang anti link\nJika Kamu Melanggar Maka Akan Saya Tendang`, text)
+						iRexus.sendMessage(from, `ALLERT!!! Group ini sudah di pasang anti link\nJika Kamu Melanggar Maka Akan Saya Tendang`, text)
 					} else if (args[0] === 'off') {
 						if (!isAntiLink) return reply('Sudah Mati Kak')
 						var ini = antilink.indexOf(from)
@@ -2733,11 +2733,11 @@ await Fardan.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: mek}
 punten = [{buttonId: 'antilink off', buttonText: {displayText: 'OFF✖️'}, type: 1},{buttonId: 'antilink on', buttonText: {displayText: 'ON✔️'}, type: 1}]
 const btnasu = {
     contentText: `${anu}`,
-    footerText: '*Broadcast By Fardan Ganteng*',
+    footerText: '*Broadcast By iRexus Ganteng*',
     buttons: punten,
     headerType: 1
 }
-await Fardan.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: mek})
+await iRexus.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: mek})
 					}
 					break 
 				case 'demote':
@@ -2747,7 +2747,7 @@ await Fardan.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: mek}
                    if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Reply targetnya!')
 			demote = mek.message.extendedTextMessage.contextInfo.participant
-		    Fardan.groupDemoteAdmin(from, [demote])
+		    iRexus.groupDemoteAdmin(from, [demote])
 						reply('Sukses demote admin')
 						break
 					case 'promote':
@@ -2757,7 +2757,7 @@ await Fardan.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: mek}
                    if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 				  if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Reply targetnya!')
 			promote = mek.message.extendedTextMessage.contextInfo.participant
-		    Fardan.groupMakeAdmin(from, [promote])
+		    iRexus.groupMakeAdmin(from, [promote])
 						reply('Sukses promote member')
 						break
 				case 'linkgrup':
@@ -2766,9 +2766,9 @@ await Fardan.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: mek}
               
 				if (!isGroup) return reply(mess.only.group)
                    if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-					linkgc = await Fardan.groupInviteCode(from)
+					linkgc = await iRexus.groupInviteCode(from)
 					yeh = `https://chat.whatsapp.com/${linkgc}\n\nLink grup ${groupName}`
-					Fardan.sendMessage(from, yeh, text, { quoted: mek })
+					iRexus.sendMessage(from, yeh, text, { quoted: mek })
 					break
 					case 'resetlinkgc':
          case 'resetlinkgroup':
@@ -2778,7 +2778,7 @@ await Fardan.sendMessage(from, btnasu, MessageType.buttonsMessage, {quoted: mek}
          if (!isGroupAdmins) return reply(mess.only.admin)
                    if (!isBotGroupAdmins) return reply(mess.only.Badmin)
           json = ['action', 'inviteReset', from]
-         Fardan.query({json, expect200: true})
+         iRexus.query({json, expect200: true})
           reply('Sukses Mereset Link Group')
          break
 case 'gc': case 'group':
@@ -2789,21 +2789,21 @@ const bMess = {
     buttons: buttonss,
     headerType: 1
 }
-await Fardan.sendMessage(from, bMess, MessageType.buttonsMessage, {quoted: mek})
+await iRexus.sendMessage(from, bMess, MessageType.buttonsMessage, {quoted: mek})
 break
 					case 'opengc':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
                    if (!isBotGroupAdmins) return reply(mess.only.Badmin)
                    reply(`Sukses membuka grup ${groupName}`)
-						Fardan.groupSettingChange(from, GroupSettingChange.messageSend, false)
+						iRexus.groupSettingChange(from, GroupSettingChange.messageSend, false)
 						break
 						case 'closegc':
 						if (!isGroup) return reply(mess.only.group)
 						if (!isGroupAdmins) return reply(mess.only.admin)
                    if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 						reply(`Sukses menutup grup ${groupName}`)
-						Fardan.groupSettingChange(from, GroupSettingChange.messageSend, true)
+						iRexus.groupSettingChange(from, GroupSettingChange.messageSend, true)
 					break
 				case 'demoteall':
 		if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
@@ -2813,7 +2813,7 @@ break
 		for (let mem of groupMembers) {
 	   	members_id.push(mem.jid)
 	  	}
-                Fardan.groupDemoteAdmin(from, members_id)
+                iRexus.groupDemoteAdmin(from, members_id)
                 break
                 case 'promoteall':
 		if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
@@ -2823,38 +2823,38 @@ break
 		for (let mem of groupMembers) {
 	   	members_id.push(mem.jid)
 	  	}
-                Fardan.groupMakeAdmin(from, members_id)
+                iRexus.groupMakeAdmin(from, members_id)
                 break
 				case 'leave':
 				if (!isGroup) return reply(mess.only.group)
 				if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
-				Fardan.updatePresence(from, Presence.composing)
-				Fardan.groupLeave(from)
+				iRexus.updatePresence(from, Presence.composing)
+				iRexus.groupLeave(from)
 						break
 				case 'bc':
-					Fardan.updatePresence(from, Presence.composing)
+					iRexus.updatePresence(from, Presence.composing)
 					if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 					if (args.length < 1) return reply('Teksnya?')
-					anu = await Fardan.chats.all()
+					anu = await iRexus.chats.all()
 					if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-						buff = await Fardan.downloadMediaMessage(encmedia)
+						buff = await iRexus.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							Fardan.sendMessage(_.jid, buff, image, { viewOnce:true, caption: `${body.slice(4)}`})
+							iRexus.sendMessage(_.jid, buff, image, { viewOnce:true, caption: `${body.slice(4)}`})
 						}
 						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
 						} else if (isMedia && !mek.message.videoMessage || isQuotedVideo) {
 						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-						buff = await Fardan.downloadMediaMessage(encmedia)
+						buff = await iRexus.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							Fardan.sendMessage(_.jid, buff, video, { viewOnce:true, caption: `${body.slice(4)}`})
+							iRexus.sendMessage(_.jid, buff, video, { viewOnce:true, caption: `${body.slice(4)}`})
 						}
 						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
 						} else if (isMedia && !mek.message.videoMessage || isQuotedVideo) {
 						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-						buff = await Fardan.downloadMediaMessage(encmedia)
+						buff = await iRexus.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							Fardan.sendMessage(_.jid, buff, video, { mimetype: Mimetype.gif, quoted: finv, contextInfo: { forwardingScore: 508, isForwarded: true}, caption: `${body.slice(4)}` })
+							iRexus.sendMessage(_.jid, buff, video, { mimetype: Mimetype.gif, quoted: finv, contextInfo: { forwardingScore: 508, isForwarded: true}, caption: `${body.slice(4)}` })
 						}
 						reply(`Sukses mengirim Broadcast ${body.slice(4)}`)
 					} else {
@@ -2863,11 +2863,11 @@ break
 buttons = [{buttonId: `menu`, buttonText: {displayText: 'MENU'}, type: 1},{buttonId: `sewa`, buttonText: {displayText: 'SEWA BOT'}, type: 1}]
 const btnbc = {
     contentText: `${body.slice(4)}`,
-    footerText: '*Broadcast By Fardan Ganteng*',
+    footerText: '*Broadcast By iRexus Ganteng*',
     buttons: buttons,
     headerType: 1
 }
-await Fardan.sendMessage(_.jid, btnbc, MessageType.buttonsMessage, {quoted: mek})
+await iRexus.sendMessage(_.jid, btnbc, MessageType.buttonsMessage, {quoted: mek})
 						}
 						reply(`Sukses mengirim Broadcast:\n${body.slice(4)}`)
 					}
@@ -2878,9 +2878,9 @@ await Fardan.sendMessage(_.jid, btnbc, MessageType.buttonsMessage, {quoted: mek}
 				case 'ttp':  
 				case 'attp':
               reply(mess.wait)
-					if (!c) return reply(`Teks Nya Mana Kak?\nContoh :\n${prefix}attp FaxChan`)
+					if (!c) return reply(`Teks Nya Mana Kak?\nContoh :\n${prefix}attp iRexusChan`)
 					atetepe = await getBuffer(`https://hardianto.xyz/api/ttpcustom?text=${encodeURIComponent(c)}&color=black&apikey=hardianto`)
-					Fardan.sendMessage(from, atetepe, sticker, { quoted: mek })
+					iRexus.sendMessage(from, atetepe, sticker, { quoted: mek })
 					break             
             case 'hidetag':
             if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
@@ -2922,13 +2922,13 @@ break
 `
 buttons = [{buttonId:`.ytmp3 ${res.all[0].url}`,buttonText:{displayText:'🎵AUDIO'},type:1},{buttonId:`ytmp4 ${res.all[0].url}`,buttonText:{displayText:'MP4📰'},type:1}]
 
-imageMessage = (await Fardan.prepareMessageMedia({url:res.all[0].image},'imageMessage',{thumbnail:Buffer.alloc(0)})).imageMessage
+imageMessage = (await iRexus.prepareMessageMedia({url:res.all[0].image},'imageMessage',{thumbnail:Buffer.alloc(0)})).imageMessage
 
 buttonsMessage = {contentText: thumbInfo,footerText:'Silahkan Pilih Jenis File Dibawah Ini',imageMessage,buttons,headerType:4}
 
-prep = await Fardan.prepareMessageFromContent(from,{buttonsMessage},{})
+prep = await iRexus.prepareMessageFromContent(from,{buttonsMessage},{})
 
-Fardan.relayWAMessage(prep)
+iRexus.relayWAMessage(prep)
 break
 case 'play2':
    reply(mess.wait)
@@ -2947,14 +2947,14 @@ Source : ${anu.result.source}
 *[Wait] Tunggu Sebentar..*`
 				///////buffer = await getBuffer(anu.result.thumbnail)
 				buffer1 = await getBuffer(anu.result.url_video)
-				Fardan.sendMessage(from, buffer1, video, {mimetype: 'video/mp4', filename: `${anu.result.video}.mp4`, quoted: mek, caption: 'Nih Gan'})
+				iRexus.sendMessage(from, buffer1, video, {mimetype: 'video/mp4', filename: `${anu.result.video}.mp4`, quoted: mek, caption: 'Nih Gan'})
 					break
 							case 'tiktokmusic':
 							case 'tiktokmusik':	
 							reply(mess.wait)
 							if (!q)return reply(`Example : ${prefix + command} [Link]`)
 						anu = await getBuffer(`https://api.lolhuman.xyz/api/tiktokmusic?apikey=${settings.lolkey}&url=${q}`)
-						Fardan.sendMessage(from, anu, audio, {mimetype: 'audio/mp4', quoted: mek})
+						iRexus.sendMessage(from, anu, audio, {mimetype: 'audio/mp4', quoted: mek})
 							
 						break
 case 'ytmp3':
@@ -2963,7 +2963,7 @@ if (!q)return reply(`Example : ${prefix + command} [Link]`)
 ppec = await fetchJson(`https://api.zekais.com/ytmp4?url=${q}&apikey=zekais`)
 ytt = `「 *YOUTUBE MP3* 」\n\n▢ *Judul :* ${ppec.title}\n▢ *Size : ${ppec.size}*\n▢ *Ext: Mp3*\n▢ *Like : ${ppec.likes}*\n▢ *Dislike : ${ppec.dislike}*\n▢ *Views : ${ppec.views}*\n▢ *Upload : ${ppec.uploadDate}*\n\n*[ Wait ]Tunggu Sebentar kak...*`
 buff = await getBuffer(ppec.thumb)
-Fardan.sendMessage(from, buff, image, {quoted: mek, caption: ytt})
+iRexus.sendMessage(from, buff, image, {quoted: mek, caption: ytt})
 sendMediaURL(from,ppec.result)
 break 
 case 'ytmp4':
@@ -2977,7 +2977,7 @@ ytt3 = `「 *YOUTUBE MP4* 」\n\n▢ *Judul :* ${mp4.title}\n▢ *Size : ${mp4.s
 
 buff = await getBuffer(mp4.thumb)
 
-Fardan.sendMessage(from, buff, image, {quoted: mek, caption: ytt3})
+iRexus.sendMessage(from, buff, image, {quoted: mek, caption: ytt3})
 sendMediaURL(from,mp4.result,`「 *YOUTUBE MP4* 」\n▢ *Judul :* ${mp4.title}\n▢ *Size : ${mp4.size}*\n▢ *Ext: Mp4*\n▢ *Quality : ${mp4.quality}*`)
 
 break                
@@ -3000,7 +3000,7 @@ break
 * Link:* ${items[i].url}\n\n`
                 }
                 thumb = await getBuffer(items[0].bestThumbnail.url)
-                await Fardan.sendMessage(from, thumb, image, {quoted: mek, caption: `${hehe}───────────────\n
+                await iRexus.sendMessage(from, thumb, image, {quoted: mek, caption: `${hehe}───────────────\n
 `, contextInfo: { forwardingScore: 508, isForwarded: true, externalAdreply:{title:`SEARCH: ${args[0]}`,body:"YOUTUBE SEARCH",mediaType:"2",thumbnail:pporigi,mediaUrl:`https://youtu.be/JN_Gw2GzuqQ`}}})
             } catch(e) {
                 reply('Didn\'t find anything or there is any error!')
@@ -3011,7 +3011,7 @@ case 'tourl':
 reply(mess.wait)
             if ((isMedia && !mek.message.videoMessage || isQuotedImage || isQuotedVideo ) && args.length == 0) {
             boij = isQuotedImage || isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-            owgi = await Fardan.downloadMediaMessage(boij)
+            owgi = await iRexus.downloadMediaMessage(boij)
             res = await upload(owgi)
             reply(res)
             } else {
@@ -3044,19 +3044,19 @@ case 'sewa':
 ┏━━⬣ 𝐌𝐢𝐧𝐚𝐭?𝐂𝐡𝐚𝐭♨️
 ┃💌 : *SERING² DONASI✨*
 ┃💌 : ==============
-┃💌 : wa.me/6281398860278
+┃💌 : wa.me/6281299792351
 ┃💌 : ==============
-┃💌 : Instagram : _*@Fardan_store20*_
-┃💌 : YouTube : _*Fardan Zex's*_
+┃💌 : Instagram : _*@mahardika.sa*_
+┃💌 : YouTube : _*iRexus Zex's*_
 ┗━━⬣`
-				sendButLocation(from, `${memek}`, `${tod}Subscribe Channel\nFardan Zex!!${tod}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}owner`,buttonText:{displayText:'Done 🌌'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+				sendButLocation(from, `${memek}`, `${tod}Subscribe Channel\niRexus Zex!!${tod}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}owner`,buttonText:{displayText:'Done 🌌'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 				break
 case 'rdp':
 case 'vps':
               
 				runtime = process.uptime()
 				tod = '```'
-				memek =`Fardan Store Promo only Rdp
+				memek =`iRexus Store Promo only Rdp
 OS All Windows!
 
 Garansi 1 Bulan Pnuh!
@@ -3069,7 +3069,7 @@ RAM • vCpu • SSD • NOM
 8 GB | 4 vCpu | 136GB : 75K
 
 
-List Vps By Fardan Store
+List Vps By iRexus Store
 
 RAM • vCpu • SSD • NOM
 
@@ -3079,8 +3079,8 @@ RAM • vCpu • SSD • NOM
 Note : Free Peng Install An Google Chrome
 
 Minat?Chat
-https://wa.me/6281398860278`
-				sendButLocation(from, `${memek}`, `Subscribe Channel\nFardan Zex!!`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}owner`,buttonText:{displayText:'Done 🌌'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+https://wa.me/6281299792351`
+				sendButLocation(from, `${memek}`, `Subscribe Channel\niRexus Zex!!`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}owner`,buttonText:{displayText:'Done 🌌'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 				break
 case 'jasrun':
 case 'jasarun':
@@ -3088,7 +3088,7 @@ case 'kebutuhanbot':
               
 				runtime = process.uptime()
 				tod = '```'
-				memek =`https://chat.whatsapp.com/KnylQRBnBcMFtVVmMh2Nxx
+				memek =`https://chat.whatsapp.com/JZejAYq8LfzCFWyyPz8HVO
 
 ˖ ݁ ˓ *Masuk Kak*
 ˖ ݁ ˓ *Open Jasa Run Bot Wa*
@@ -3098,7 +3098,7 @@ case 'kebutuhanbot':
 > Rdp
 
 _Bisa Beli Script Bot WhatsApp Juga_`
-				sendButLocation(from, `${memek}`, `Subscribe Channel\nFardan Zex!!`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}owner`,buttonText:{displayText:'Done 🌌'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+				sendButLocation(from, `${memek}`, `Subscribe Channel\niRexus Zex!!`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}owner`,buttonText:{displayText:'Done 🌌'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 				break								            
 case 'donate': 
        case 'donasi':
@@ -3108,11 +3108,11 @@ case 'donate':
 DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana ️🎁: 081398860278\nOvo 🎊: 081398860278\nPulsa Tsel 📺: 082138919347\nPulsa Tsel 📺: 081398860278
 `
   buttons = [{buttonId: `${prefix}owner`,buttonText:{displayText: `Owner👑`},type:1}]
-              imageMsg = (await Fardan.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
+              imageMsg = (await iRexus.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
               buttonsMessage = {footerText:'Ikhlas', imageMessage: imageMsg,
               contentText: teksnya,buttons,headerType:4}
-              prep = await Fardan.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
-              Fardan.relayWAMessage(prep)
+              prep = await iRexus.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
+              iRexus.relayWAMessage(prep)
               break				
             
   //── 「 Pembatas 」 ──//               
@@ -3131,7 +3131,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 					
 						if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 							const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-							const media = await Fardan.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
+							const media = await iRexus.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
 							await ffmpeg(`${media}`)
 									.input(media)
 									.on('start', function (cmd) {
@@ -3146,7 +3146,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 										console.log('Finish')
 										exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 											if (error) return reply(mess.error.api)
-											Fardan.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+											iRexus.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
 											fs.unlinkSync(media)	
 											fs.unlinkSync(`./sticker/${sender}.webp`)	
 										})
@@ -3156,7 +3156,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 									.save(`./sticker/${sender}.webp`)
 						} else if ((isMedia && mek.message.videoMessage.fileLength < 10000000 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
 							const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-							const media = await Fardan.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
+							const media = await iRexus.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
 							reply(mess.wait)
 								await ffmpeg(`${media}`)
 									.inputFormat(media.split('.')[4])
@@ -3173,7 +3173,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 										console.log('Finish')
 										exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 											if (error) return reply(mess.error.api)
-											Fardan.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+											iRexus.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
 											fs.unlinkSync(media)
 											fs.unlinkSync(`./sticker/${sender}.webp`)
 										})
@@ -3191,7 +3191,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 						if (isMedia && !mek.message.videoMessage || isQuotedImage) {
 							ppp = `${args.join(' ')}`
 							const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-							const media = await Fardan.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
+							const media = await iRexus.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
 							const packname1 = ppp.split('|')[0]
 							const author1 = ppp.split('|')[1]
 							exif.create(packname1, author1, `stickwm_${sender}`)
@@ -3209,7 +3209,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 										console.log('Finish')
 										exec(`webpmux -set exif ./sticker/stickwm_${sender}.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 											if (error) return reply(mess.error.api)
-											Fardan.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+											iRexus.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
 											fs.unlinkSync(media)	
 											fs.unlinkSync(`./sticker/${sender}.webp`)	
 											fs.unlinkSync(`./sticker/stickwm_${sender}.exif`)
@@ -3222,7 +3222,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 							wmsti = body.slice(11)
 							if (!wmsti.includes('|')) return reply(`Kirim gambar atau reply gambar dengan caption *${prefix}stickerwm nama|author*`)
 							const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-							const media = await Fardan.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
+							const media = await iRexus.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
 							const packname1 = wmsti.split('|')[0]
 							const author1 = wmsti.split('|')[1]
 							exif.create(packname1, author1, `stickwm_${sender}`)
@@ -3242,7 +3242,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 										console.log('Finish')
 										exec(`webpmux -set exif ./sticker/stickwm_${sender}.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 											if (error) return reply(mess.error.api)
-											Fardan.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+											iRexus.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
 											fs.unlinkSync(media)
 											fs.unlinkSync(`./sticker/${sender}.webp`)
 											fs.unlinkSync(`./sticker/stickwm_${sender}.exif`)
@@ -3261,13 +3261,13 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 						if (!isQuotedSticker) return reply(`Reply sticker dengan caption *${prefix}takestick nama|author*`)
 						ppp = `${args.join(' ')}`
 						const encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-						const media = await Fardan.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
+						const media = await iRexus.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
 						const packname = ppp.split('|')[0]
 						const author = ppp.split('|')[1]
 						exif.create(packname, author, `takestick_${sender}`)
 						exec(`webpmux -set exif ./sticker/takestick_${sender}.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 							if (error) return reply(mess.error.api)
-							Fardan.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
+							iRexus.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: mek})
 							fs.unlinkSync(media)
 							fs.unlinkSync(`./sticker/takestick_${sender}.exif`)
 						})
@@ -3281,8 +3281,8 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 					break
 				case 'return':
 				if (!isOwner) return reply(mess.only.ownerB)
-					return Fardan.sendMessage(from, JSON.stringify(eval(body.slice(8))), text, {quoted: mek})
-					if (err) return Fardan.sendMessage(from, `root @Fardan ilham:~ ${err}`, text, { quoted: mek })
+					return iRexus.sendMessage(from, JSON.stringify(eval(body.slice(8))), text, {quoted: mek})
+					if (err) return iRexus.sendMessage(from, `root @iRexus ilham:~ ${err}`, text, { quoted: mek })
                  break
                  case 'toimg':
 				case 'tomedia':
@@ -3290,7 +3290,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 					if (!isQuotedSticker) return reply('Reply stiker nya')
 					if (mek.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.isAnimated === true){
 						const encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-						const media = await Fardan.downloadAndSaveMediaMessage(encmedia)
+						const media = await iRexus.downloadAndSaveMediaMessage(encmedia)
 						const upload = await uploadimg(media, Date.now() + '.webp')
 						console.log(upload)
 						reply(`${upload.result.image}`)
@@ -3299,13 +3299,13 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 						sendMediaURL(from, rume.data.result)
 					} else {
 						const encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-						const media = await Fardan.downloadAndSaveMediaMessage(encmedia)
+						const media = await iRexus.downloadAndSaveMediaMessage(encmedia)
 						ran = '1000.png'
 						exec(`ffmpeg -i ${media} ${ran}`, (err) => {
 							fs.unlinkSync(media)
 							if (err) return reply(mess.error.api)
 							buffer = fs.readFileSync(ran)
-							Fardan.sendMessage(from, buffer, image, {quoted: mek})
+							iRexus.sendMessage(from, buffer, image, {quoted: mek})
 							fs.unlinkSync(ran)
 						})
 					}
@@ -3315,34 +3315,34 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 				if (!isGroup) return reply(mess.only.group)
 				anu  = body.slice(10)
 				wanu = anu.split('|')
-				var group = await Fardan.groupMetadata(wanu[0])
+				var group = await iRexus.groupMetadata(wanu[0])
 				var member = group['participants']
 				var mem = []
 				member.map( async adm => {
 				mem.push(adm.id.replace('c.us', 's.whatsapp.net'))
 				})
 				result = fs.readFileSync(`./media/sticker/${wanu[1]}.webp`)
-				Fardan.sendMessage(`${wanu[0]}`, result, sticker, { contextInfo: { "mentionedJid": mem }})
+				iRexus.sendMessage(`${wanu[0]}`, result, sticker, { contextInfo: { "mentionedJid": mem }})
 				break
 			case 'runtime':
               
 				runtime = process.uptime()
 				tod = '```'
 				memek =`Waktu Aktif Bot : ${waktu(runtime)}`
-				sendButLocation(from, `${memek}`, `${tod}Subscribe Channel\nFardan Zex!!${tod}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}owner`,buttonText:{displayText:'AUTHOR🍁'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
+				sendButLocation(from, `${memek}`, `${tod}Subscribe Channel\niRexus Zex!!${tod}`, {jpegThumbnail:ofrply}, [{buttonId:`${prefix}owner`,buttonText:{displayText:'AUTHOR🍁'},type:1}], {contextInfo: { mentionedJid: [ptod,dtod,otod,stod]}})
 				break
 			case 'setbio':
 				if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 				if (args.length < 1) return reply('Teksnya?')
 					iyek = body.slice(8)
-					Fardan.setStatus(`${iyek}`)
+					iRexus.setStatus(`${iyek}`)
 					reply(`Sukses mengganti bio ke ${body.slice(8)}`)
 					break
 					case 'setname':
 					if (!isOwner && !mek.key.fromMe) return reply(mess.only.ownerB)
 				if (args.length < 1) return reply('Teksnya?')
                 anu = body.slice(9)
-                Fardan.updateProfileName(anu)
+                iRexus.updateProfileName(anu)
                 reply(`Sukses mengganti nama ke ${body.slice(9)}`)
                 break
 			case 'add':
@@ -3352,7 +3352,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 			if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 			if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Reply targetnya!')
 			add = mek.message.extendedTextMessage.contextInfo.participant
-		    Fardan.groupAdd(from, [add])
+		    iRexus.groupAdd(from, [add])
 				reply('Sukses menambahkan peserta')
 				break
 				case 'kick':
@@ -3362,7 +3362,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 			if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 			if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Reply targetnya!')
 			kick = mek.message.extendedTextMessage.contextInfo.participant
-		    Fardan.groupRemove(from, [kick])
+		    iRexus.groupRemove(from, [kick])
 						reply('Sukses mengeluarkan peserta')
                     break
                     case 'creategroup':
@@ -3377,7 +3377,7 @@ DONASI OM\nSESUNGGUH NYA ORANG YANG MEMBERI LEBIH BAIK DARI MENERIMA ☝\n\nDana
 						anu = []
 						anu.push(mentioned[i])
                     }
-					Fardan.groupCreate(argz[0], anu)
+					iRexus.groupCreate(argz[0], anu)
 					reply(`Sukses membuat grup ${argz[0]}`)
                 }
 				break
@@ -3405,14 +3405,14 @@ const btngrass = {
     buttons: punten,
     headerType: 1
 }
-await Fardan.sendMessage(from, btngrass, MessageType.buttonsMessage, {quoted: mek})
+await iRexus.sendMessage(from, btngrass, MessageType.buttonsMessage, {quoted: mek})
 					}
 					break
 					default:
 		break
 		 if (isMedia && isAuto && !mek.message.videoMessage || isQuotedImage) {
 						const encmedia = mek
-						const media = await Fardan.downloadAndSaveMediaMessage(encmedia)
+						const media = await iRexus.downloadAndSaveMediaMessage(encmedia)
 						ran = getRandom('.webp')
 						await ffmpeg(`./${media}`)
 							.input(media)
@@ -3427,7 +3427,7 @@ await Fardan.sendMessage(from, btngrass, MessageType.buttonsMessage, {quoted: me
 							.on('end', function () {
 								console.log('Finish')
 								buffer = fs.readFileSync(ran)
-								Fardan.sendMessage(from, buffer, sticker, { quoted: mek})
+								iRexus.sendMessage(from, buffer, sticker, { quoted: mek})
 								fs.unlinkSync(media)
 								fs.unlinkSync(ran)
 							})
@@ -3438,7 +3438,7 @@ await Fardan.sendMessage(from, btngrass, MessageType.buttonsMessage, {quoted: me
 	           // FOR VIDEO OR G
 		   if ((isMedia & isAuto && !mek.message.imageMessage || isQuotedVideo)) {
 						const encmedia = mek
-						const media = await Fardan.downloadAndSaveMediaMessage(encmedia)
+						const media = await iRexus.downloadAndSaveMediaMessage(encmedia)
 						if (Buffer.byteLength(media) >= 6186598.4) return reply(`sizenya terlalu gede sayang, dd gakuat :(`)
 						ran = getRandom('.webp')
 						await ffmpeg(`./${media}`)
@@ -3455,7 +3455,7 @@ await Fardan.sendMessage(from, btngrass, MessageType.buttonsMessage, {quoted: me
 							.on('end', function () {
 								console.log('Finish')
 								buff = fs.readFileSync(ran)
-								Fardan.sendMessage(from, buff, sticker, { quoted: mek})
+								iRexus.sendMessage(from, buff, sticker, { quoted: mek})
 								fs.unlinkSync(media)
 								fs.unlinkSync(ran)
 							})
