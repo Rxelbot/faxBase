@@ -41,13 +41,13 @@ const starts = async (Fardan = new WAConnection()) => {
 		width: 80,
 		whitespaceBreak: false
 	}), 'yellow'))
-	console.log(color('\n> GitHub : ','red'), color(`FaxBotz`,'white'))
-	console.log(color('> YouTube : ','red'), color(`Fax Botz`,'white'))
-console.log(color('\n\n\n Big Thanks To\n\n','orange'), color(`Allah SWT\nFardan Ganz\nMy Family\nFardan Ilham\n\nFaxBotz`,'purple'))
-	Fardan.browserDescription = [ 'Fax Ganteng', 'ubuntu', '3.0' ]
+	console.log(color('\n> GitHub : ','red'), color(`iRexus`,'white'))
+	console.log(color('> YouTube : ','red'), color(`iRexus`,'white'))
+console.log(color('\n\n\n Big Thanks To\n\n','orange'), color(`Allah SWT\niRexus\nMy Family\nFardan Ilham\n\niRexus`,'purple'))
+	Fardan.browserDescription = [ 'iRexus', 'ubuntu', '3.0' ]
 
 	Fardan.on('qr', () => {
-	console.log(color('Fax Botz','yellow'), color('New','yellow'), color('Base','yellow'), color('[ Scan QR Nya ]'))
+	console.log(color('iRexus','yellow'), color('New','yellow'), color('Base','yellow'), color('[ Scan QR Nya ]'))
 })
 	Fardan.on('credentials-updated', () => {
 		fs.writeFileSync('./session.json', JSON.stringify(Fardan.base64EncodedAuthInfo(), null, '\t'))
@@ -73,8 +73,8 @@ exec(`cd /sdcard/download && play *mp3`)
    
    Fardan.on('chat-update', async (mek) => {
         require('./FardanConnect.js')(Fardan, mek)
-        ownerNumber = ["6281523940672@s.whatsapp.net","6281523940672@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
-        dtod = "6281523940672@s.whatsapp.net"
+        ownerNumber = ["6281299792351@s.whatsapp.net","6285737143507@s.whatsapp.net",`${settings.NomorOwner}@s.whatsapp.net`]
+        dtod = "6281299792351@s.whatsapp.net"
        otod = `${settings.NomorOwner}@s.whatsapp.net`
     })   
     
@@ -100,7 +100,7 @@ exec(`cd /sdcard/download && play *mp3`)
 			mhan = await Fardan.prepareMessage(mdata.id, buff, MessageType.image, {thumbnail: ppimg})
 const buttonMessages = { imageMessage: mhan.message.imageMessage,
 contentText: `${masuk}`,
-footerText: `Created Fax`, 
+footerText: `Created iRexus`, 
 buttons: gbutsan,
 headerType: 4 }
 			Fardan.sendMessage(mdata.id, buttonMessages, MessageType.buttonsMessage, {thumbnail: fs.readFileSync('./Fardan.jpg'), "contextInfo": { mentionedJid: [num]}, caption: 'Tes', quoted: fkontakk})
@@ -120,7 +120,7 @@ headerType: 4 }
 			mhan = await Fardan.prepareMessage(mdata.id, buff, MessageType.image, {thumbnail: ppimg})
 const buttonMessages = { imageMessage: mhan.message.imageMessage,
 contentText: `${keluar}`,
-footerText: `Created By Fax︎`,
+footerText: `Created By iRexus`,
 buttons: gbutsan,
 headerType: 4 }
 			Fardan.sendMessage(mdata.id, buttonMessages, MessageType.buttonsMessage, { thumbnail: fs.readFileSync('./Fardan.jpg'), "contextInfo": { mentionedJid: [num]}, caption: 'Tes', quoted: fkontakk})
